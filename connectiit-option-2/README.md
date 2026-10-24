@@ -18,13 +18,10 @@ Open `index.html` in a modern browser. No build step or package install is neede
 - Profile photo and IIT banner uploads, editable highlights, follow / unfollow, and media / post tabs
 - Demo profiles, posts, follows, and messages saved in this browser's local storage
 
-## Supabase authentication
+## Prototype limits
 
-The app creates email-and-password accounts in Supabase Auth and saves the basic profile in the `public.profiles` table. Supabase project URL and publishable key are configured in `js/supabase.js`; browser code must use only the publishable key, never a secret or service-role key.
+This is still a front-end prototype. It does not connect to Supabase, send real email or OTP messages, securely store or verify passwords, synchronize accounts across browsers, or deliver messages to other people. Signup requires a demo password after OTP verification and checks that it meets the length rule and matches its confirmation, but it is discarded rather than stored. Sign in uses a saved local email and accepts any non-empty demo password. Connect Supabase Auth, Postgres, and Storage before using real student data. The included profiles and posts are sample content.
 
-The profile upsert expects `profiles` columns `id` (UUID matching `auth.users.id`), `name`, `detail`, `interests`, `goals`, `emoji`, and `bio`. Enable row-level security and allow an authenticated user to select, insert, and update only their own row (`auth.uid() = id`). If Supabase email confirmation is enabled, users must confirm their email before signing in; sending confirmation emails to IIT addresses requires a configured SMTP provider. The six-digit OTP shown during onboarding is still a demo code and is not emailed.
-
-Posts, messages, and other app data remain local demo data; only Supabase Auth accounts and basic profile rows are synchronized.
 ## Easy edits
 
 - Change landing-page copy and colors in `index.html`.

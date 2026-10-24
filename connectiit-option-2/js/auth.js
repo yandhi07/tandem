@@ -1,22 +1,4 @@
 /* auth.js — signup, login, session restore, profile editing (Member 1) */
-const ALLOWED_EMAIL_DOMAINS = new Set([
-  'iitb.ac.in', 'iitd.ac.in', 'smail.iitm.ac.in', 'iitk.ac.in',
-  'kgpian.iitkgp.ac.in', 'iitr.ac.in', 'iitg.ac.in', 'iith.ac.in',
-  'iitbhu.ac.in', 'iitism.ac.in', 'iitbbs.ac.in', 'iitgn.ac.in',
-  'iitj.ac.in', 'iiti.ac.in', 'iitmandi.ac.in', 'iitrpr.ac.in',
-  'iitp.ac.in', 'iitbhilai.ac.in', 'iitgoa.ac.in', 'iitjammu.ac.in',
-  'iitdh.ac.in', 'iitpkd.ac.in', 'iittp.ac.in'
-]);
-
-function hasAllowedEmailDomain(email){
-  const normalizedEmail=(email||'').trim().toLowerCase();
-  const atIndex=normalizedEmail.lastIndexOf('@');
-  if(atIndex<=0||atIndex===normalizedEmail.length-1)return false;
-  const emailDomain=normalizedEmail.slice(atIndex+1);
-  return [...ALLOWED_EMAIL_DOMAINS].some(domain=>
-    emailDomain===domain||emailDomain.endsWith(`.${domain}`)
-  );
-}
 
 async function fetchProfile(id){
   const {data,error}=await sb.from('profiles').select('*').eq('id',id).maybeSingle();
@@ -55,7 +37,6 @@ async function finishSignup(){
   const name=val('newName'),email=val('newEmail'),password=document.getElementById('newPassword').value;
   if(!name){document.getElementById('newName').focus();showToast('Add your name to continue');return}
   if(!email){document.getElementById('newEmail').focus();showToast('Add your email to continue');return}
-  if(!hasAllowedEmailDomain(email)){document.getElementById('newEmail').focus();showToast('Use your IIT email address to create an account');return}
   if(password.length<6){document.getElementById('newPassword').focus();showToast('Password must be at least 6 characters');return}
   const goals=[...document.querySelectorAll('[data-goal].on')].map(x=>x.dataset.goal);
   const btn=document.getElementById('signupBtn');btn.disabled=true;btn.textContent='Creating…';
@@ -80,7 +61,6 @@ function openLogin(){
 async function doLogin(){
   const email=val('loginEmail'),password=document.getElementById('loginPassword').value;
   if(!email||!password){showToast('Enter your email and password');return}
-  if(!hasAllowedEmailDomain(email)){document.getElementById('loginEmail').focus();showToast('Log in with your IIT email address');return}
   const btn=document.getElementById('loginBtn');btn.disabled=true;btn.textContent='Logging in…';
   const {data,error}=await sb.auth.signInWithPassword({email,password});
   if(error){showToast(error.message);btn.disabled=false;btn.textContent='Log in ↗';return}
