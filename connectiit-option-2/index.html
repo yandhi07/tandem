@@ -262,7 +262,7 @@ function safeWebsite(value) {
 function openSignup() {
   if (state.profile) { showApp(); showToast('Your demo profile is already on this browser.'); return; }
   signupDraft = {
-    name:'', gender:'Prefer not to say', age:'', hometown:'', email:'', otp:'', otpSentTo:'', otpVerified:false,
+    name:'', gender:'Prefer not to say', age:'', hometown:'', email:'', otp:'', otpSentTo:'', otpVerified:false, password:'', passwordConfirm:'',
     college:'IIT Delhi', course:'B.Tech', year:'1st year', branch:'Computer Science',
     goals:['friends'], personalTags:[], favoriteTags:[], bio:'', currentProject:'', careerGoal:'', startupIdea:'', internshipGoal:'', professionalBio:''
   };
@@ -271,6 +271,8 @@ function openSignup() {
 function renderSignupStep(step) {
   signupDraft.step = step;
   const progress = [1,2,3].map(i => `<span class="${i <= step ? 'on' : ''}"></span>`).join('');
+  const otpButtonLabel = signupDraft.otpVerified ? 'Verified ✓' : signupDraft.otpSentTo ? 'Verify' : 'Send demo OTP';
+  const otpButtonAction = signupDraft.otpVerified ? '' : signupDraft.otpSentTo ? 'verifyDemoOtp()' : 'sendDemoOtp()';
   let body = '';
   if (step === 1) {
     body = `
@@ -282,9 +284,10 @@ function renderSignupStep(step) {
         <div class="field"><label for="signupHometown">Hometown</label><input id="signupHometown" maxlength="60" placeholder="City or place" value="${esc(signupDraft.hometown)}" oninput="signupDraft.hometown=this.value"></div>
       </div>
       <div class="field"><label for="signupEmail">Email address *</label><input id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com" value="${esc(signupDraft.email)}" oninput="updateSignupEmail(this.value)"></div>
-      <div class="otp-row"><div class="field"><label for="signupOtp">Demo OTP *</label><input id="signupOtp" inputmode="numeric" maxlength="6" placeholder="6 digit code" value="${esc(signupDraft.otp)}" oninput="signupDraft.otp=this.value"></div><button class="btn light small" type="button" onclick="sendDemoOtp()">Send demo OTP</button></div>
+      <div class="otp-row"><div class="field"><label for="signupOtp">Demo OTP *</label><input id="signupOtp" inputmode="numeric" maxlength="6" placeholder="6 digit code" value="${esc(signupDraft.otp)}" oninput="updateSignupOtp(this.value)"></div><button class="btn light small" type="button" ${signupDraft.otpVerified?'disabled':''} onclick="${otpButtonAction}">${otpButtonLabel}</button></div>
       <div class="otp-status" id="otpStatus">${signupDraft.otpSentTo ? (signupDraft.otpVerified ? 'Email verified for this demo.' : 'Demo code: 246810') : ''}</div>
-      <p class="form-note">This prototype uses a visible demo code. Real email and OTP verification should be connected through Supabase Auth.</p>
+      <div id="signupPasswordFields">${signupDraft.otpVerified ? signupPasswordFieldsHTML() : ''}</div>
+      <p class="form-note">This prototype uses a visible demo code. After verification, create a password to continue. The demo does not store passwords; connect Supabase Auth for real account security.</p>
       <div class="modal-bottom"><span class="form-note">* Required to continue</span><button class="btn" type="button" onclick="nextSignup()">Continue →</button></div>`;
   } else if (step === 2) {
     body = `
@@ -321,17 +324,40 @@ function renderSignupStep(step) {
   if (step === 3) renderFavoriteInterestChoices();
   document.querySelector('.modal')?.scrollTo(0,0);
 }
+function signupPasswordFieldsHTML() {
+  return `<div class="form-grid signup-password-grid">
+    <div class="field"><label for="signupPassword">Create a password *</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required placeholder="At least 8 characters" value="${esc(signupDraft.password)}" oninput="signupDraft.password=this.value"><small>Use at least 8 characters.</small></div>
+    <div class="field"><label for="signupPasswordConfirm">Confirm password *</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" required placeholder="Enter it again" value="${esc(signupDraft.passwordConfirm)}" oninput="signupDraft.passwordConfirm=this.value"></div>
+  </div>`;
+}
 function updateSignupEmail(value) {
   if (signupDraft.email !== value) {
     signupDraft.email = value;
     signupDraft.otpSentTo = '';
     signupDraft.otpVerified = false;
     signupDraft.otp = '';
+    signupDraft.password = '';
+    signupDraft.passwordConfirm = '';
     const status = document.getElementById('otpStatus');
     if (status) status.textContent = '';
     const button = document.querySelector('.otp-row .btn');
-    if (button) { button.textContent = 'Send demo OTP'; button.onclick = sendDemoOtp; }
+    if (button) { button.textContent = 'Send demo OTP'; button.onclick = sendDemoOtp; button.disabled = false; }
+    const passwordFields = document.getElementById('signupPasswordFields');
+    if (passwordFields) passwordFields.innerHTML = '';
   }
+}
+function updateSignupOtp(value) {
+  signupDraft.otp = value;
+  if (!signupDraft.otpVerified) return;
+  signupDraft.otpVerified = false;
+  signupDraft.password = '';
+  signupDraft.passwordConfirm = '';
+  const status = document.getElementById('otpStatus');
+  if (status) status.textContent = 'The code changed. Verify it again to create a password.';
+  const passwordFields = document.getElementById('signupPasswordFields');
+  if (passwordFields) passwordFields.innerHTML = '';
+  const button = document.querySelector('.otp-row .btn');
+  if (button) { button.textContent = 'Verify'; button.onclick = verifyDemoOtp; button.disabled = false; }
 }
 function sendDemoOtp() {
   const input = document.getElementById('signupEmail');
@@ -343,7 +369,7 @@ function sendDemoOtp() {
   const status = document.getElementById('otpStatus');
   if (status) status.textContent = 'Demo OTP: 246810 · Enter this code and choose Verify.';
   const button = document.querySelector('.otp-row .btn');
-  if (button) { button.textContent = 'Verify'; button.onclick = verifyDemoOtp; }
+  if (button) { button.textContent = 'Verify'; button.onclick = verifyDemoOtp; button.disabled = false; }
 }
 function verifyDemoOtp() {
   const code = document.getElementById('signupOtp')?.value.trim();
@@ -356,6 +382,11 @@ function verifyDemoOtp() {
   signupDraft.otp = code;
   signupDraft.otpVerified = true;
   if (status) status.textContent = 'Email verified for this demo ✓';
+  const button = document.querySelector('.otp-row .btn');
+  if (button) { button.textContent = 'Verified ✓'; button.disabled = true; }
+  const passwordFields = document.getElementById('signupPasswordFields');
+  if (passwordFields) passwordFields.innerHTML = signupPasswordFieldsHTML();
+  document.getElementById('signupPassword')?.focus();
 }
 function nextSignup() {
   if (signupDraft.step === 1) {
@@ -369,6 +400,13 @@ function nextSignup() {
     if (!document.getElementById('signupEmail').checkValidity() || !signupDraft.email) { document.getElementById('signupEmail').reportValidity(); return; }
     if (!signupDraft.age || Number(signupDraft.age) < 16 || Number(signupDraft.age) > 99) { document.getElementById('signupAge').focus(); showToast('Enter an age between 16 and 99.'); return; }
     if (signupDraft.otpSentTo !== signupDraft.email || !signupDraft.otpVerified || signupDraft.otp !== DEMO_OTP) { showToast('Verify the demo OTP before continuing.'); return; }
+    const passwordInput = document.getElementById('signupPassword');
+    const passwordConfirmInput = document.getElementById('signupPasswordConfirm');
+    if (!passwordInput || !passwordConfirmInput) { showToast('Verify your email before creating a password.'); return; }
+    if (!passwordInput.checkValidity()) { passwordInput.reportValidity(); return; }
+    if (passwordInput.value !== passwordConfirmInput.value) { passwordConfirmInput.focus(); showToast('The passwords do not match.'); return; }
+    signupDraft.password = passwordInput.value;
+    signupDraft.passwordConfirm = passwordConfirmInput.value;
     renderSignupStep(2);
     return;
   }
@@ -435,6 +473,8 @@ function finishSignup() {
     professionalBio:signupDraft.professionalBio, emoji:'🙂', color:'#dce9ce'
   };
   state.mode = signupDraft.goals.includes('friends') ? 'friends' : 'professional';
+  signupDraft.password = '';
+  signupDraft.passwordConfirm = '';
   save();
   closeModal();
   showApp();

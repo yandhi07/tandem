@@ -20,7 +20,7 @@ Open `index.html` in a modern browser. No build step or package install is neede
 
 ## Prototype limits
 
-This is still a front-end prototype. It does not connect to Supabase, send real email or OTP messages, verify passwords, synchronize accounts across browsers, or deliver messages to other people. Sign in uses a saved local email and accepts any non-empty demo password. Connect Supabase Auth, Postgres, and Storage before using real student data. The included profiles and posts are sample content.
+This is still a front-end prototype. It does not connect to Supabase, send real email or OTP messages, securely store or verify passwords, synchronize accounts across browsers, or deliver messages to other people. Signup requires a demo password after OTP verification and checks that it meets the length rule and matches its confirmation, but it is discarded rather than stored. Sign in uses a saved local email and accepts any non-empty demo password. Connect Supabase Auth, Postgres, and Storage before using real student data. The included profiles and posts are sample content.
 
 ## Easy edits
 
