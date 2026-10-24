@@ -61,9 +61,19 @@
     @media(max-width:680px){#app{padding-bottom:95px}.appbar{height:auto;min-height:94px}.appbar-inner{padding:10px 16px;display:grid;grid-template-columns:1fr auto;gap:7px}.app-brand{justify-self:start}.user-mini{justify-self:end}.mode-tabs{grid-column:1/-1;justify-self:center}.mode-tab{padding:8px 20px}.dashboard-layout{display:flex;flex-direction:column;margin:15px auto 0;padding:0 13px;gap:12px}.feed-column{order:1;width:100%}.messages-panel{order:2;width:100%;position:static}.suggestions-panel{order:3;width:100%;display:block;position:static}.suggestions-panel .column-heading{margin:5px 2px 12px}.suggestion-card{max-width:none}.campus-banner{height:130px}.feed-top h1{font-size:23px}.feed-post{padding:15px}.profile-screen{margin:15px auto;padding:0 13px}.profile-cover{height:150px}.profile-header-card{padding:0 17px 19px}.profile-large-avatar{width:88px;height:88px;font-size:32px}.profile-header-top{align-items:flex-end;gap:8px}.profile-action-row{padding-top:12px;flex-wrap:wrap}.profile-action-row .btn{padding:8px 10px}.profile-display-name{font-size:22px}.profile-metrics{gap:15px}.profile-section-card{padding:16px}.profile-media-grid{gap:4px}.profile-media-card{border-radius:8px;padding:8px}.form-grid{grid-template-columns:1fr}.otp-row{grid-template-columns:1fr}.otp-row>.btn{justify-self:start}.modal{padding:21px}.modal-bottom{position:sticky;bottom:-21px;background:#fffefa;padding-bottom:8px}.chat-modal .modal{padding:0}.app-bottom-nav{bottom:calc(8px + env(safe-area-inset-bottom));height:62px}}
     .preference-block{border:1px solid #e8ece5;border-radius:15px;padding:13px 14px;margin:14px 0;background:#fffefa}.preference-block>h3{display:flex;align-items:center;justify-content:space-between;gap:10px;font:700 13px Manrope,sans-serif;margin:0 0 12px;color:var(--ink)}.preference-block>h3 span{font:800 8px 'DM Sans',sans-serif;letter-spacing:.1em;color:#839087}.profile-action-row .btn.light{background:white;color:var(--green);border:1px solid #dce5d9}.profile-cover .campus-scene{height:100%;opacity:.9}.profile-media-card img{position:absolute;inset:0}.profile-media-card{position:relative}.profile-media-card>span,.profile-media-card>strong{position:relative;z-index:1}.feed-filter{cursor:pointer}.navlinks .btn{white-space:nowrap}
     @media(max-width:620px){.navlinks{gap:7px}.navlinks .btn{padding:8px 10px;font-size:10px}.navlinks>a:not(.btn){display:none}.topbar{gap:8px}.topbar>.brand{font-size:19px}.preference-block{padding:11px}.preference-block>h3{align-items:flex-start;flex-direction:column;gap:4px}}
+    /* Conversations */
+    .mode-tabs{flex-wrap:wrap;justify-content:center}.mode-tab.conversations-tab{white-space:nowrap}
+    .appbar-actions{display:flex;align-items:center;gap:9px}
+    .dashboard-layout{grid-template-columns:minmax(0,1fr) 300px}
+    body.conversations-open{overflow:hidden}.conversations-screen.hidden{display:none}.conversations-screen{position:fixed;z-index:4;inset:72px 0 0;max-width:none;margin:0;padding:22px max(25px,calc((100vw - 1180px)/2));display:flex;flex-direction:column;overflow:hidden;background:#f7f8f5}.conversations-heading{flex:none;display:flex;justify-content:space-between;align-items:end;margin-bottom:15px}.conversations-heading h1{font:800 27px Manrope,sans-serif;letter-spacing:-.055em;margin:5px 0 0}.conversations-layout{height:auto;min-height:0;max-height:690px;flex:1;display:grid;grid-template-columns:310px minmax(0,1fr);overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fffefa;box-shadow:0 12px 32px #1732220a}.conversation-sidebar{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.conversation-search{padding:15px;border-bottom:1px solid var(--line)}.conversation-search input{width:100%;border:1px solid var(--line);border-radius:11px;background:#f7f8f5;padding:11px 13px;font-size:12px;outline-color:#9bbd85}.conversation-list{overflow:auto;padding:7px}.conversation-contact{width:100%;display:flex;align-items:center;gap:10px;text-align:left;border:0;background:transparent;border-radius:13px;padding:11px 9px}.conversation-contact:hover,.conversation-contact.active{background:#eef3e9}.conversation-contact .mini-avatar{flex:none}.conversation-copy{min-width:0;flex:1}.conversation-name{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:700}.conversation-time,.conversation-preview{font-size:10px;color:#87918a}.conversation-time{white-space:nowrap;font-weight:500}.conversation-preview{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:4px}.conversation-main{display:flex;flex-direction:column;min-width:0;min-height:0}.conversation-empty{margin:auto;text-align:center;padding:24px;color:var(--muted);font-size:13px;line-height:1.6}.conversation-top{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}.conversation-top .mini-avatar{flex:none}.conversation-top button{margin-left:auto;border:0;background:transparent;color:var(--muted)}.conversation-top small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.conversation-history{display:flex;flex:1;min-height:0;flex-direction:column;gap:9px;overflow:auto;padding:18px;background-color:#f5f7f2;background-image:radial-gradient(#d9e1d3 0.7px,transparent .7px);background-size:16px 16px}.conversation-day-separator{align-self:center;position:sticky;top:6px;z-index:1;margin:7px 0 3px;padding:5px 11px;border:1px solid #e5eae1;border-radius:999px;background:#fffefa;color:#657269;font-size:10px;box-shadow:0 2px 6px #14231f0a}.conversation-bubble{max-width:min(78%,440px);align-self:flex-start;padding:9px 11px;border-radius:14px 14px 14px 4px;background:white;box-shadow:0 2px 7px #15231c0d;font-size:12px;line-height:1.5;overflow-wrap:anywhere}.conversation-bubble.mine{align-self:flex-end;border-radius:14px 14px 4px 14px;background:#e7f0df}.conversation-bubble small{display:block;margin-top:5px;text-align:right;color:#89938b;font-size:9px}.conversation-bubble img,.conversation-bubble video{display:block;max-width:100%;max-height:300px;border-radius:9px;margin:2px 0 6px}.conversation-file{display:flex;align-items:center;gap:10px;min-width:min(260px,60vw);padding:8px;border-radius:9px;background:#f3f5f1;color:var(--ink);text-decoration:none}.conversation-file-icon{font-size:23px}.conversation-file-name{font-size:11px;font-weight:700;word-break:break-word}.conversation-file-size{font-size:9px;color:var(--muted)}.conversation-compose{display:flex;align-items:end;gap:7px;padding:12px;border-top:1px solid var(--line);background:#fffefa}.conversation-compose textarea{flex:1;min-width:0;max-height:100px;resize:vertical;border:1px solid var(--line);border-radius:15px;padding:11px 13px;font-size:12px;outline-color:#9bbd85}.conversation-tool{flex:none;border:0;background:transparent;border-radius:50%;width:38px;height:38px;font-size:19px;color:#58675d}.conversation-tool:hover{background:#f0f3ec}.conversation-compose .btn{height:38px;padding:0 15px}.emoji-picker{display:flex;flex-wrap:wrap;gap:5px;max-height:140px;overflow:auto;padding:9px;border-top:1px solid var(--line);background:white}.emoji-picker button{border:0;background:none;border-radius:7px;padding:5px;font-size:20px}.emoji-picker button:hover{background:#edf2e8}.attachment-note{padding:0 14px 8px;background:white;color:#748078;font-size:10px}.chat-preview-media{max-width:95px!important;max-height:70px!important;margin:0!important}
+    @media(max-width:1050px){.dashboard-layout{grid-template-columns:minmax(0,1fr)}.suggestions-panel{position:static;display:block;grid-column:auto}}
+    @media(max-width:680px){.appbar-actions{grid-column:2;grid-row:1;justify-self:end;gap:4px}.conversations-screen{inset:94px 0 78px;padding:13px;}.conversations-layout{height:auto;min-height:0;max-height:none;grid-template-columns:105px minmax(0,1fr);border-radius:14px}.conversation-sidebar{min-width:0}.conversation-search{padding:8px}.conversation-search input{padding:9px 7px;font-size:10px}.conversation-list{padding:4px}.conversation-contact{padding:9px 4px;gap:5px;flex-direction:column;align-items:flex-start}.conversation-contact .mini-avatar{width:36px;height:36px}.conversation-name{font-size:10px;display:block}.conversation-time{display:none}.conversation-preview{font-size:9px}.conversation-top{padding:11px 9px;gap:7px;font-size:11px}.conversation-top .mini-avatar{width:34px;height:34px}.conversation-history{padding:10px}.conversation-bubble{max-width:92%;font-size:11px}.conversation-compose{gap:2px;padding:7px 4px}.conversation-tool{width:32px;height:36px;font-size:18px}.conversation-compose textarea{padding:9px 8px;font-size:11px}.conversation-compose .btn{padding:0 10px;font-size:11px}.conversations-heading{margin-bottom:10px}.conversations-heading h1{font-size:23px}}
 
     .avatar-photo{object-fit:cover;display:block}.user-mini .avatar-photo{width:100%;height:100%;border-radius:inherit}.profile-large-avatar .avatar-photo{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}.modal-bottom>span{flex:1}
-    .find-match-button{width:100%;margin:0 0 12px;border:1px solid #d8e5d2;border-radius:12px;padding:10px 12px;background:#edf4e9;color:var(--green);font-size:11px;font-weight:800;transition:background .18s,transform .18s}.find-match-button:hover{background:#e2eedb;transform:translateY(-1px)}.find-match-button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}.match-results-intro{margin:0 0 10px;color:var(--muted);font-size:10px;line-height:1.5}.match-results-list{display:grid;gap:9px}.match-result{padding:11px;border:1px solid var(--line);border-radius:14px;background:#fffefa}.match-result-heading{display:flex;align-items:center;gap:9px}.match-result-heading .mini-avatar{width:37px;height:37px;flex:none}.match-result-copy{min-width:0;flex:1}.match-result-copy strong,.match-result-copy small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.match-result-copy strong{font-size:11px}.match-result-copy small{margin-top:3px;color:var(--muted);font-size:9px}.match-result-score{color:var(--green);font-size:13px;font-weight:800;white-space:nowrap}.match-meter{height:5px;margin:9px 0 7px;border-radius:99px;background:#e9eee6;overflow:hidden}.match-meter span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#88b774,var(--green))}.match-result-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:9px}.match-result-bottom button{border:0;background:transparent;color:var(--green);font-size:9px;font-weight:800;padding:2px}.match-percent-pill{display:inline-flex;margin-top:9px;padding:6px 9px;border-radius:99px;background:#eaf3e5;color:var(--green);font-size:10px;font-weight:800}.favorite-interest-picker{border-top:1px solid #e8ece5;margin-top:14px;padding-top:13px}.favorite-interest-picker h3{display:flex;justify-content:space-between;gap:8px;margin:0 0 5px;font:700 12px Manrope,sans-serif}.favorite-interest-picker h3 span{font:800 8px 'DM Sans',sans-serif;letter-spacing:.08em;color:#839087}.favorite-interest-picker .form-note{margin:0 0 8px}.favorite-tag{font-size:10px}
+    .app-bottom-nav{display:grid;grid-template-columns:1fr 1fr 1fr;justify-content:initial;justify-items:stretch;gap:0;padding-left:12px;padding-right:12px}.bottom-nav-item{width:100%;min-width:0;height:100%;align-content:center}.bottom-nav-create{justify-self:center}
+    .conversations-screen{top:72px;bottom:calc(70px + env(safe-area-inset-bottom));padding:10px max(25px,calc((100vw - 1180px)/2)) 0}
+    .conversations-heading{margin-bottom:8px}.conversations-heading h1{font-size:21px;margin:0}
+    @media(max-width:680px){.conversations-screen{top:94px;bottom:calc(70px + env(safe-area-inset-bottom));padding:8px 13px 0}.conversations-heading{margin-bottom:7px}.conversations-heading h1{font-size:20px}}
   </style>
 </head>
 <body>
@@ -126,14 +136,12 @@
           <button id="personalModeTab" class="mode-tab" role="tab" onclick="setMode('friends')">Personal</button>
           <button id="professionalModeTab" class="mode-tab" role="tab" onclick="setMode('professional')">Professional</button>
         </div>
-        <button class="user-mini" onclick="showMyProfile()"><div class="mini-avatar" id="topAvatar">🙂</div><span id="topName">Your profile</span></button>
+        <div class="appbar-actions">
+          <button class="user-mini" onclick="showMyProfile()"><div class="mini-avatar" id="topAvatar">🙂</div><span id="topName">Your profile</span></button>
+        </div>
       </div>
     </header>
     <main class="dashboard-layout" id="dashboardView">
-      <aside class="messages-panel panel">
-        <div class="column-heading"><div><span class="column-kicker">YOUR INBOX</span><h2>Messages</h2></div><span class="online-dot" aria-label="Online"></span></div>
-        <div id="messageList" class="message-list"></div>
-      </aside>
       <section class="feed-column">
         <div class="feed-top"><div><span class="column-kicker" id="feedModeLabel">PERSONAL COMMUNITY</span><h1 id="feedHeading">Your Feed</h1></div><button class="feed-filter" id="feedFilterButton" onclick="cycleFeedFilter()">Latest ↓</button></div>
         <div id="feed" class="feed-list"></div>
@@ -143,16 +151,25 @@
         <div id="suggestions"></div>
       </aside>
     </main>
+    <main class="conversations-screen hidden" id="conversationsScreen">
+      <div class="conversations-heading"><h1>Conversations</h1></div>
+      <section class="conversations-layout" aria-label="Conversations">
+        <aside class="conversation-sidebar"><div class="conversation-search"><input id="conversationSearch" type="search" placeholder="Search conversations" oninput="renderConversationList()" aria-label="Search conversations"></div><div class="conversation-list" id="conversationList"></div></aside>
+        <section class="conversation-main" id="conversationMain"><div class="conversation-empty">Choose someone to start chatting.<br>Messages and shared files stay in this browser demo.</div></section>
+      </section>
+    </main>
     <main class="profile-screen hidden" id="profileScreen"><div id="profileContent"></div></main>
     <nav class="app-bottom-nav" aria-label="Main navigation">
       <button class="bottom-nav-item active" id="homeNavButton" onclick="showHome()"><span aria-hidden="true">⌂</span><small>Home</small></button>
       <button class="bottom-nav-create" aria-label="Create a post" onclick="openPostComposer()">＋</button>
-      <button class="bottom-nav-item" id="profileNavButton" onclick="showMyProfile()"><span aria-hidden="true">◉</span><small>My Profile</small></button>
+      <button class="bottom-nav-item" id="conversationsModeTab" aria-current="false" onclick="showConversations()"><span aria-hidden="true"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-6.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg></span><small>Conversations</small></button>
     </nav>
   </div>
   <div id="modalRoot"></div><div id="toastRoot"></div>
 <script>
 const KEY = 'connectiit-demo-v1';
+const CHAT_DB_NAME = 'connectiit-chat-files-v1';
+const MAX_CHAT_FILE_BYTES = 15 * 1024 * 1024;
 const DEMO_OTP = '246810';
 const MAX_IMAGE_BYTES = 950000;
 const campuses = ['IIT Delhi', 'IIT Bombay', 'IIT Roorkee', 'IIT Madras', 'IIT Kanpur', 'IIT Kharagpur', 'IIT Guwahati', 'IIT Hyderabad', 'Other IIT'];
@@ -164,12 +181,12 @@ const tagGroups = {
   Gaming: ['BGMI', 'Valorant', 'FIFA', 'Minecraft', 'Casual games']
 };
 const starterPeople = [
-  {id:'u1', name:'Aarav Mehta', handle:'aaravbuilds', year:'2nd year', branch:'Computer Science', college:'IIT Delhi', course:'B.Tech', bio:'Building small robots and big ideas.', interests:['Robotics','Photography','Hiking','Indie'], favoriteInterests:['Robotics'], skills:['Arduino','Python'], goals:['friends','professional'], emoji:'🧑🏻‍🔧', color:'#f5c7ad', currentProject:'Campus delivery rover'},
-  {id:'u2', name:'Diya Nair', handle:'diyadesigns', year:'3rd year', branch:'Design', college:'IIT Bombay', course:'B.Des', bio:'Designing things that make everyday life better.', interests:['Design','Music','Running','Anime'], favoriteInterests:['Design','Music'], skills:['Figma','User research'], goals:['friends','professional'], emoji:'👩🏽‍🎨', color:'#cad9f5', currentProject:'Accessible campus map'},
-  {id:'u3', name:'Rohan Das', handle:'rohansings', year:'1st year', branch:'Electrical Engineering', college:'IIT Roorkee', course:'B.Tech', bio:'Learning, playing guitar, and finding good chai.', interests:['Music','Football','Reading','Indie'], favoriteInterests:['Music'], skills:['Electronics'], goals:['friends'], emoji:'🎸', color:'#ecd5ef'},
-  {id:'u4', name:'Meera Shah', handle:'meeramakes', year:'4th year', branch:'Data Science', college:'IIT Madras', course:'B.Tech', bio:'Working on an AI project for accessible learning.', interests:['AI / ML','Reading','Volunteering','Documentaries'], favoriteInterests:['AI / ML'], skills:['Python','Machine learning'], goals:['professional'], emoji:'🚀', color:'#f0dfaa', currentProject:'AI reading assistant'},
-  {id:'u5', name:'Kabir Singh', handle:'kabironthemove', year:'2nd year', branch:'Mechanical Engineering', college:'IIT Kanpur', course:'B.Tech', bio:'Motorsport fan. Always up for a weekend trek.', interests:['Robotics','Hiking','Football','FIFA'], favoriteInterests:['Robotics','Hiking'], skills:['CAD','Prototyping'], goals:['friends','professional'], emoji:'🏎️', color:'#bde0d3', currentProject:'Lightweight electric kart'},
-  {id:'u6', name:'Ananya Rao', handle:'ananyaplans', year:'3rd year', branch:'Civil Engineering', college:'IIT Guwahati', course:'B.Tech', bio:'Curious about sustainable cities and good coffee.', interests:['Photography','Design','Sustainability'], favoriteInterests:['Sustainability'], skills:['Research','Figma'], goals:['professional'], emoji:'🌿', color:'#f0c5c5', currentProject:'Low-cost water monitoring'}
+  {id:'u1', name:'Aarav Mehta', handle:'aaravbuilds', year:'2nd year', branch:'Computer Science', college:'IIT Delhi', course:'B.Tech', bio:'Building small robots and big ideas.', interests:['Robotics','Photography','Hiking','Indie'], skills:['Arduino','Python'], goals:['friends','professional'], emoji:'🧑🏻‍🔧', color:'#f5c7ad', currentProject:'Campus delivery rover'},
+  {id:'u2', name:'Diya Nair', handle:'diyadesigns', year:'3rd year', branch:'Design', college:'IIT Bombay', course:'B.Des', bio:'Designing things that make everyday life better.', interests:['Design','Music','Running','Anime'], skills:['Figma','User research'], goals:['friends','professional'], emoji:'👩🏽‍🎨', color:'#cad9f5', currentProject:'Accessible campus map'},
+  {id:'u3', name:'Rohan Das', handle:'rohansings', year:'1st year', branch:'Electrical Engineering', college:'IIT Roorkee', course:'B.Tech', bio:'Learning, playing guitar, and finding good chai.', interests:['Music','Football','Reading','Indie'], skills:['Electronics'], goals:['friends'], emoji:'🎸', color:'#ecd5ef'},
+  {id:'u4', name:'Meera Shah', handle:'meeramakes', year:'4th year', branch:'Data Science', college:'IIT Madras', course:'B.Tech', bio:'Working on an AI project for accessible learning.', interests:['AI / ML','Reading','Volunteering','Documentaries'], skills:['Python','Machine learning'], goals:['professional'], emoji:'🚀', color:'#f0dfaa', currentProject:'AI reading assistant'},
+  {id:'u5', name:'Kabir Singh', handle:'kabironthemove', year:'2nd year', branch:'Mechanical Engineering', college:'IIT Kanpur', course:'B.Tech', bio:'Motorsport fan. Always up for a weekend trek.', interests:['Robotics','Hiking','Football','FIFA'], skills:['CAD','Prototyping'], goals:['friends','professional'], emoji:'🏎️', color:'#bde0d3', currentProject:'Lightweight electric kart'},
+  {id:'u6', name:'Ananya Rao', handle:'ananyaplans', year:'3rd year', branch:'Civil Engineering', college:'IIT Guwahati', course:'B.Tech', bio:'Curious about sustainable cities and good coffee.', interests:['Photography','Design','Sustainability'], skills:['Research','Figma'], goals:['professional'], emoji:'🌿', color:'#f0c5c5', currentProject:'Low-cost water monitoring'}
 ];
 function freshState() {
   const now = Date.now();
@@ -197,10 +214,7 @@ function loadState() {
     if (!saved) return freshState();
     return {...freshState(), ...saved,
       profile:saved.profile ? {...saved.profile} : null,
-      people:Array.isArray(saved.people) ? saved.people.map(person=>{
-        const sample=starterPeople.find(item=>item.id===person.id);
-        return sample ? {...sample,...person,favoriteInterests:person.favoriteInterests||person.favorite_interests||sample.favoriteInterests} : person;
-      }) : starterPeople,
+      people:Array.isArray(saved.people) ? saved.people : starterPeople,
       posts:Array.isArray(saved.posts) ? saved.posts.map(post=>({...post,type:post.type==='personal'?'friends':post.type})) : freshState().posts,
       connections:Array.isArray(saved.connections) ? saved.connections : [],
       dismissed:Array.isArray(saved.dismissed) ? saved.dismissed : [],
@@ -219,7 +233,6 @@ let selectedAvatar = null;
 let activeChatId = null;
 let selectedProfileId = 'me';
 let profileTab = 'media';
-let showingInterestMatches = false;
 
 function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 function esc(value) {
@@ -262,17 +275,15 @@ function safeWebsite(value) {
 function openSignup() {
   if (state.profile) { showApp(); showToast('Your demo profile is already on this browser.'); return; }
   signupDraft = {
-    name:'', gender:'Prefer not to say', age:'', hometown:'', email:'', otp:'', otpSentTo:'', otpVerified:false, password:'', passwordConfirm:'',
+    name:'', gender:'Prefer not to say', age:'', hometown:'', email:'', otp:'', otpSentTo:'', otpVerified:false,
     college:'IIT Delhi', course:'B.Tech', year:'1st year', branch:'Computer Science',
-    goals:['friends'], personalTags:[], favoriteTags:[], bio:'', currentProject:'', careerGoal:'', startupIdea:'', internshipGoal:'', professionalBio:''
+    goals:['friends'], personalTags:[], bio:'', currentProject:'', careerGoal:'', startupIdea:'', internshipGoal:'', professionalBio:''
   };
   renderSignupStep(1);
 }
 function renderSignupStep(step) {
   signupDraft.step = step;
   const progress = [1,2,3].map(i => `<span class="${i <= step ? 'on' : ''}"></span>`).join('');
-  const otpButtonLabel = signupDraft.otpVerified ? 'Verified ✓' : signupDraft.otpSentTo ? 'Verify' : 'Send demo OTP';
-  const otpButtonAction = signupDraft.otpVerified ? '' : signupDraft.otpSentTo ? 'verifyDemoOtp()' : 'sendDemoOtp()';
   let body = '';
   if (step === 1) {
     body = `
@@ -284,10 +295,9 @@ function renderSignupStep(step) {
         <div class="field"><label for="signupHometown">Hometown</label><input id="signupHometown" maxlength="60" placeholder="City or place" value="${esc(signupDraft.hometown)}" oninput="signupDraft.hometown=this.value"></div>
       </div>
       <div class="field"><label for="signupEmail">Email address *</label><input id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com" value="${esc(signupDraft.email)}" oninput="updateSignupEmail(this.value)"></div>
-      <div class="otp-row"><div class="field"><label for="signupOtp">Demo OTP *</label><input id="signupOtp" inputmode="numeric" maxlength="6" placeholder="6 digit code" value="${esc(signupDraft.otp)}" oninput="updateSignupOtp(this.value)"></div><button class="btn light small" type="button" ${signupDraft.otpVerified?'disabled':''} onclick="${otpButtonAction}">${otpButtonLabel}</button></div>
+      <div class="otp-row"><div class="field"><label for="signupOtp">Demo OTP *</label><input id="signupOtp" inputmode="numeric" maxlength="6" placeholder="6 digit code" value="${esc(signupDraft.otp)}" oninput="signupDraft.otp=this.value"></div><button class="btn light small" type="button" onclick="sendDemoOtp()">Send demo OTP</button></div>
       <div class="otp-status" id="otpStatus">${signupDraft.otpSentTo ? (signupDraft.otpVerified ? 'Email verified for this demo.' : 'Demo code: 246810') : ''}</div>
-      <div id="signupPasswordFields">${signupDraft.otpVerified ? signupPasswordFieldsHTML() : ''}</div>
-      <p class="form-note">This prototype uses a visible demo code. After verification, create a password to continue. The demo does not store passwords; connect Supabase Auth for real account security.</p>
+      <p class="form-note">This prototype uses a visible demo code. Real email and OTP verification should be connected through Supabase Auth.</p>
       <div class="modal-bottom"><span class="form-note">* Required to continue</span><button class="btn" type="button" onclick="nextSignup()">Continue →</button></div>`;
   } else if (step === 2) {
     body = `
@@ -307,7 +317,6 @@ function renderSignupStep(step) {
       <p class="modal-intro">Choose what you want to explore. You can use both modes and update your profile later.</p>
       <div class="goal-choice-row"><button type="button" class="${signupDraft.goals.includes('friends')?'on':''}" data-goal-choice="friends" onclick="toggleGoalDraft(this)">☀ Make friends across IITs</button><button type="button" class="${signupDraft.goals.includes('professional')?'on':''}" data-goal-choice="professional" onclick="toggleGoalDraft(this)">✳ Professional network</button></div>
       <div class="preference-block"><h3>Personal profile <span>INTERESTS & HOBBIES</span></h3>${groups}
-        <div class="favorite-interest-picker"><h3>Favourite interests <span>COUNT TWICE IN MATCHES</span></h3><p class="form-note">Choose up to three of your selected interests. These carry extra weight when finding matches.</p><div class="chips" id="favoriteInterestChoices"></div></div>
         <div class="field"><label for="signupBio">Your bio <span style="font-weight:400">(optional)</span></label><textarea id="signupBio" maxlength="150" placeholder="A little about you, in 150 characters or less." oninput="signupDraft.bio=this.value">${esc(signupDraft.bio)}</textarea></div>
       </div>
       <div class="preference-block pro-preferences"><h3>Professional profile <span>IDEAS & NEXT STEPS</span></h3>
@@ -321,14 +330,7 @@ function renderSignupStep(step) {
       <div class="modal-bottom"><button class="btn light" type="button" onclick="renderSignupStep(2)">← Back</button><button class="btn" type="button" onclick="finishSignup()">Create my profile ↗</button></div>`;
   }
   modal(`<div class="eyebrow"><span></span> WELCOME TO CONNECTIIT</div><h2>Let’s get to know you.</h2><div class="modal-progress">${progress}</div>${body}`);
-  if (step === 3) renderFavoriteInterestChoices();
   document.querySelector('.modal')?.scrollTo(0,0);
-}
-function signupPasswordFieldsHTML() {
-  return `<div class="form-grid signup-password-grid">
-    <div class="field"><label for="signupPassword">Create a password *</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required placeholder="At least 8 characters" value="${esc(signupDraft.password)}" oninput="signupDraft.password=this.value"><small>Use at least 8 characters.</small></div>
-    <div class="field"><label for="signupPasswordConfirm">Confirm password *</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" required placeholder="Enter it again" value="${esc(signupDraft.passwordConfirm)}" oninput="signupDraft.passwordConfirm=this.value"></div>
-  </div>`;
 }
 function updateSignupEmail(value) {
   if (signupDraft.email !== value) {
@@ -336,28 +338,11 @@ function updateSignupEmail(value) {
     signupDraft.otpSentTo = '';
     signupDraft.otpVerified = false;
     signupDraft.otp = '';
-    signupDraft.password = '';
-    signupDraft.passwordConfirm = '';
     const status = document.getElementById('otpStatus');
     if (status) status.textContent = '';
     const button = document.querySelector('.otp-row .btn');
-    if (button) { button.textContent = 'Send demo OTP'; button.onclick = sendDemoOtp; button.disabled = false; }
-    const passwordFields = document.getElementById('signupPasswordFields');
-    if (passwordFields) passwordFields.innerHTML = '';
+    if (button) { button.textContent = 'Send demo OTP'; button.onclick = sendDemoOtp; }
   }
-}
-function updateSignupOtp(value) {
-  signupDraft.otp = value;
-  if (!signupDraft.otpVerified) return;
-  signupDraft.otpVerified = false;
-  signupDraft.password = '';
-  signupDraft.passwordConfirm = '';
-  const status = document.getElementById('otpStatus');
-  if (status) status.textContent = 'The code changed. Verify it again to create a password.';
-  const passwordFields = document.getElementById('signupPasswordFields');
-  if (passwordFields) passwordFields.innerHTML = '';
-  const button = document.querySelector('.otp-row .btn');
-  if (button) { button.textContent = 'Verify'; button.onclick = verifyDemoOtp; button.disabled = false; }
 }
 function sendDemoOtp() {
   const input = document.getElementById('signupEmail');
@@ -369,7 +354,7 @@ function sendDemoOtp() {
   const status = document.getElementById('otpStatus');
   if (status) status.textContent = 'Demo OTP: 246810 · Enter this code and choose Verify.';
   const button = document.querySelector('.otp-row .btn');
-  if (button) { button.textContent = 'Verify'; button.onclick = verifyDemoOtp; button.disabled = false; }
+  if (button) { button.textContent = 'Verify'; button.onclick = verifyDemoOtp; }
 }
 function verifyDemoOtp() {
   const code = document.getElementById('signupOtp')?.value.trim();
@@ -382,11 +367,6 @@ function verifyDemoOtp() {
   signupDraft.otp = code;
   signupDraft.otpVerified = true;
   if (status) status.textContent = 'Email verified for this demo ✓';
-  const button = document.querySelector('.otp-row .btn');
-  if (button) { button.textContent = 'Verified ✓'; button.disabled = true; }
-  const passwordFields = document.getElementById('signupPasswordFields');
-  if (passwordFields) passwordFields.innerHTML = signupPasswordFieldsHTML();
-  document.getElementById('signupPassword')?.focus();
 }
 function nextSignup() {
   if (signupDraft.step === 1) {
@@ -400,13 +380,6 @@ function nextSignup() {
     if (!document.getElementById('signupEmail').checkValidity() || !signupDraft.email) { document.getElementById('signupEmail').reportValidity(); return; }
     if (!signupDraft.age || Number(signupDraft.age) < 16 || Number(signupDraft.age) > 99) { document.getElementById('signupAge').focus(); showToast('Enter an age between 16 and 99.'); return; }
     if (signupDraft.otpSentTo !== signupDraft.email || !signupDraft.otpVerified || signupDraft.otp !== DEMO_OTP) { showToast('Verify the demo OTP before continuing.'); return; }
-    const passwordInput = document.getElementById('signupPassword');
-    const passwordConfirmInput = document.getElementById('signupPasswordConfirm');
-    if (!passwordInput || !passwordConfirmInput) { showToast('Verify your email before creating a password.'); return; }
-    if (!passwordInput.checkValidity()) { passwordInput.reportValidity(); return; }
-    if (passwordInput.value !== passwordConfirmInput.value) { passwordConfirmInput.focus(); showToast('The passwords do not match.'); return; }
-    signupDraft.password = passwordInput.value;
-    signupDraft.passwordConfirm = passwordConfirmInput.value;
     renderSignupStep(2);
     return;
   }
@@ -420,32 +393,10 @@ function nextSignup() {
 }
 function toggleSignupTag(button) {
   const tag = button.dataset.tag;
-  const removing=signupDraft.personalTags.includes(tag);
-  signupDraft.personalTags = removing
+  signupDraft.personalTags = signupDraft.personalTags.includes(tag)
     ? signupDraft.personalTags.filter(item => item !== tag)
     : [...signupDraft.personalTags, tag];
-  if (removing) signupDraft.favoriteTags=signupDraft.favoriteTags.filter(item=>item!==tag);
   button.classList.toggle('on');
-  renderFavoriteInterestChoices();
-}
-function renderFavoriteInterestChoices() {
-  const root=document.getElementById('favoriteInterestChoices');
-  if (!root || !signupDraft) return;
-  if (!signupDraft.personalTags.length) {
-    root.innerHTML='<span class="form-note">Choose interests above first.</span>';
-    return;
-  }
-  root.innerHTML=signupDraft.personalTags.map(tag=>{
-    const selected=signupDraft.favoriteTags.includes(tag);
-    return `<button type="button" class="tag-choice favorite-tag ${selected?'on':''}" data-favorite-tag="${esc(tag)}" aria-pressed="${selected}" onclick="toggleFavoriteSignupTag(this)">${selected?'★':'☆'} ${esc(tag)}</button>`;
-  }).join('');
-}
-function toggleFavoriteSignupTag(button) {
-  const tag=button.dataset.favoriteTag;
-  const selected=signupDraft.favoriteTags.includes(tag);
-  if (!selected && signupDraft.favoriteTags.length>=3) { showToast('Choose up to three favourite interests.'); return; }
-  signupDraft.favoriteTags=selected?signupDraft.favoriteTags.filter(item=>item!==tag):[...signupDraft.favoriteTags,tag];
-  renderFavoriteInterestChoices();
 }
 function toggleGoalDraft(button) {
   const goal = button.dataset.goalChoice;
@@ -468,13 +419,11 @@ function finishSignup() {
     gender:signupDraft.gender, age:signupDraft.age, hometown:signupDraft.hometown,
     college:signupDraft.college, course:signupDraft.course, year:signupDraft.year, branch:signupDraft.branch,
     detail, bio:signupDraft.bio, tagline:signupDraft.bio.slice(0,150), website:'',
-    personalTags:signupDraft.personalTags, interests:signupDraft.personalTags, favoriteInterests:signupDraft.favoriteTags, goals:signupDraft.goals,
+    personalTags:signupDraft.personalTags, interests:signupDraft.personalTags, goals:signupDraft.goals,
     professional:{currentProject:signupDraft.currentProject,careerGoal:signupDraft.careerGoal,startupIdea:signupDraft.startupIdea,internshipGoal:signupDraft.internshipGoal},
     professionalBio:signupDraft.professionalBio, emoji:'🙂', color:'#dce9ce'
   };
   state.mode = signupDraft.goals.includes('friends') ? 'friends' : 'professional';
-  signupDraft.password = '';
-  signupDraft.passwordConfirm = '';
   save();
   closeModal();
   showApp();
@@ -524,6 +473,11 @@ function renderApp() {
 }
 function setMode(mode, persist=true) {
   state.mode = mode === 'professional' ? 'professional' : 'friends';
+  document.body.classList.remove('conversations-open');
+  document.getElementById('conversationsScreen').classList.add('hidden');
+  document.getElementById('dashboardView').classList.remove('hidden');
+  document.getElementById('conversationsModeTab').classList.remove('active');
+  document.getElementById('conversationsModeTab').setAttribute('aria-current','false');
   document.getElementById('personalModeTab').classList.toggle('active', state.mode === 'friends');
   document.getElementById('professionalModeTab').classList.toggle('active', state.mode === 'professional');
   document.getElementById('personalModeTab').setAttribute('aria-selected', String(state.mode === 'friends'));
@@ -536,11 +490,33 @@ function setMode(mode, persist=true) {
   renderSuggestions();
 }
 function showHome() {
+  document.body.classList.remove('conversations-open');
   document.getElementById('dashboardView').classList.remove('hidden');
+  document.getElementById('conversationsScreen').classList.add('hidden');
   document.getElementById('profileScreen').classList.add('hidden');
+  document.getElementById('conversationsModeTab').classList.remove('active');
+  document.getElementById('conversationsModeTab').setAttribute('aria-current','false');
+  document.getElementById('personalModeTab').classList.toggle('active',state.mode==='friends');
+  document.getElementById('professionalModeTab').classList.toggle('active',state.mode==='professional');
   document.getElementById('homeNavButton').classList.add('active');
-  document.getElementById('profileNavButton').classList.remove('active');
+  document.getElementById('personalModeTab').setAttribute('aria-selected',String(state.mode==='friends'));
+  document.getElementById('professionalModeTab').setAttribute('aria-selected',String(state.mode==='professional'));
   window.scrollTo({top:0,behavior:'smooth'});
+}
+function showConversations() {
+  document.body.classList.add('conversations-open');
+  document.getElementById('dashboardView').classList.add('hidden');
+  document.getElementById('profileScreen').classList.add('hidden');
+  document.getElementById('conversationsScreen').classList.remove('hidden');
+  document.getElementById('homeNavButton').classList.remove('active');
+  document.getElementById('personalModeTab').classList.remove('active');
+  document.getElementById('professionalModeTab').classList.remove('active');
+  document.getElementById('personalModeTab').setAttribute('aria-selected','false');
+  document.getElementById('professionalModeTab').setAttribute('aria-selected','false');
+  document.getElementById('conversationsModeTab').classList.add('active');
+  document.getElementById('conversationsModeTab').setAttribute('aria-current','page');
+  renderConversationList();
+  if(activeChatId) renderConversationChat();
 }
 function showMyProfile() { showProfile('me'); }
 function cycleFeedFilter() {
@@ -554,53 +530,10 @@ function timeAgo(timestamp) {
   if (minutes < 1440) return `${Math.floor(minutes/60)}h ago`;
   return `${Math.floor(minutes/1440)}d ago`;
 }
-const FAVORITE_INTEREST_WEIGHT = 2;
-const FAVORITE_INTEREST_FIELDS = ['favoriteInterests','favorite_interests','favouriteInterests','favourite_interests'];
-function interestValues(value) {
-  if (Array.isArray(value)) return value;
-  if (typeof value === 'string') return value.split(',').map(item=>item.trim()).filter(Boolean);
-  return [];
-}
-function interestLabel(value) {
-  if (typeof value === 'string') return value.trim();
-  if (value && typeof value === 'object') return String(value.name || value.label || value.interest || value.value || '').trim();
-  return '';
-}
-function interestProfile(person) {
-  const all = new Map();
-  const favorites = new Set();
-  const add = (value, isFavorite=false) => {
-    const label = interestLabel(value);
-    const key = label.toLocaleLowerCase();
-    if (!key) return;
-    if (!all.has(key)) all.set(key,label);
-    const taggedFavorite = value && typeof value === 'object' && (value.favorite === true || value.favourite === true || value.isFavorite === true || value.is_favorite === true || value.isFavourite === true || value.is_favourite === true);
-    if (isFavorite || taggedFavorite) favorites.add(key);
-  };
-  interestValues(person?.interests).forEach(value=>add(value));
-  interestValues(person?.personalTags).forEach(value=>add(value));
-  interestValues(person?.casualInterests || person?.casual_interests).forEach(value=>add(value));
-  FAVORITE_INTEREST_FIELDS.forEach(field=>interestValues(person?.[field]).forEach(value=>add(value,true)));
-  return {all,favorites};
-}
 function matched(person) {
-  const mine=interestProfile(state.profile).all;
-  const theirs=interestProfile(person).all;
-  return [...mine.keys()].filter(key=>theirs.has(key)).map(key=>mine.get(key));
-}
-function interestMatchScore(person) {
-  const mine=interestProfile(state.profile);
-  const theirs=interestProfile(person);
-  const union=new Set([...mine.all.keys(),...theirs.all.keys()]);
-  if (!union.size) return 0;
-  let sharedWeight=0;
-  let totalWeight=0;
-  for (const key of union) {
-    const weight=mine.favorites.has(key)||theirs.favorites.has(key)?FAVORITE_INTEREST_WEIGHT:1;
-    totalWeight+=weight;
-    if (mine.all.has(key)&&theirs.all.has(key)) sharedWeight+=weight;
-  }
-  return Math.round(sharedWeight/totalWeight*100);
+  const mine = state.profile?.interests || state.profile?.personalTags || [];
+  const theirs = person?.interests || person?.personalTags || [];
+  return theirs.filter(item => mine.some(mineItem => String(mineItem).toLowerCase() === String(item).toLowerCase()));
 }
 function renderPosts() {
   const root = document.getElementById('feed');
@@ -640,38 +573,19 @@ function campusScene(name) {
     <path d="M0 185q125-22 246 0t354 0v15H0z" fill="#698d66"/>
   </svg>`;
 }
-function toggleInterestMatches() {
-  showingInterestMatches=!showingInterestMatches;
-  const button=document.getElementById('findInterestButton');
-  if (button) {
-    button.textContent=showingInterestMatches?'Back to suggested profile':'Find interest matches';
-    button.setAttribute('aria-pressed',String(showingInterestMatches));
-  }
-  renderSuggestions();
-}
 function renderSuggestions() {
   const root = document.getElementById('suggestions');
   if (!root || !state.profile) return;
   const candidates = state.people
     .filter(person => person.id !== 'me' && (person.goals || []).includes(state.mode))
     .filter(person => !state.dismissed.includes(person.id) && !state.connections.some(connection=>connection.personId===person.id))
-    .map(person=>({person,shared:matched(person),score:interestMatchScore(person)}))
-    .sort((a,b) => b.score-a.score || String(a.person.name||'').localeCompare(String(b.person.name||'')));
+    .sort((a,b) => matched(b).length - matched(a).length);
   if (!candidates.length) {
     root.innerHTML = '<div class="no-suggestions">You’ve seen everyone in this mode for now. Switch feeds or check back later.</div>';
     return;
   }
-  if (showingInterestMatches) {
-    const hasInterests=interestProfile(state.profile).all.size>0;
-    root.innerHTML = `${hasInterests?'':'<div class="no-suggestions">Add interests to your profile to get useful match scores.</div>'}<p class="match-results-intro">Ranked by shared interests. Favourite interests count twice as much.</p><div class="match-results-list">${candidates.map(({person,shared,score})=>{
-      const detail=[person.year,person.branch,person.college].filter(Boolean).join(' · ')||'IIT student';
-      const sharedText=shared.length?`Shared: ${shared.slice(0,3).map(esc).join(', ')}`:'No shared interests yet';
-      return `<article class="match-result"><div class="match-result-heading">${avatarHTML(person)}<div class="match-result-copy"><strong>${esc(person.name)}</strong><small>${esc(detail)}</small></div><span class="match-result-score">${score}%</span></div><div class="match-meter" role="img" aria-label="${score}% interest match"><span style="width:${score}%"></span></div><div class="match-result-bottom"><span>${sharedText}</span><button type="button" onclick="showProfile('${esc(person.id)}')">View profile</button></div></article>`;
-    }).join('')}</div>`;
-    return;
-  }
-  const {person,shared:allShared,score} = candidates[0];
-  const shared = allShared.slice(0,3);
+  const person = candidates[0];
+  const shared = matched(person).slice(0,3);
   const campus = person.college || 'IIT community';
   const badge = [person.branch,person.year,campus].filter(Boolean).join(' · ');
   root.innerHTML = `<article class="suggestion-card">
@@ -680,7 +594,6 @@ function renderSuggestions() {
       ${avatarHTML(person,'mini-avatar suggestion-avatar')}
       <h3 class="suggestion-name">${esc(person.name)}</h3><div class="suggestion-handle">@${esc(person.handle || person.name.toLowerCase().replace(/[^a-z0-9]+/g,''))}</div>
       <div class="suggestion-badge">${esc(badge)}</div>
-      <div class="match-percent-pill">${score}% interest match</div>
       <p class="suggestion-bio">${esc(person.bio || (state.mode==='friends'?'Open to meeting new people across IITs.':'Interested in projects and professional connections.'))}</p>
       <div class="shared-tags">${(shared.length?shared:['Across IITs']).map(tag=>`<span>${shared.length?'♥ ':''}${esc(tag)}</span>`).join('')}</div>
       <div class="suggestion-actions"><button class="swipe-button swipe-no" onclick="decideSuggestion('${esc(person.id)}','no')">No thanks</button><button class="swipe-button swipe-yes" onclick="decideSuggestion('${esc(person.id)}','yes')">Yes, connect</button></div>
@@ -718,32 +631,148 @@ function renderMessages() {
   if (!people.length) { root.innerHTML='<div class="empty">Your conversations will show here.</div>'; return; }
   root.innerHTML = people.map(person => {
     const last = relevantMessages.filter(message=>message.personId===person.id).sort((a,b)=>b.createdAt-a.createdAt)[0];
-    const preview = last ? `${last.from==='me'?'You: ':''}${last.text}` : 'Say hello to start chatting';
+    const preview = last ? `${last.from==='me'?'You: ':''}${last.text || (last.attachment ? `📎 ${last.attachment.name}` : 'Message')}` : 'Say hello to start chatting';
     return `<button class="message-thread" onclick="openChat('${esc(person.id)}')"><div class="thread-avatar-wrap">${avatarHTML(person)}<span class="thread-online"></span></div><div class="thread-copy"><div class="thread-name"><span>${esc(person.name)}</span><span class="thread-time">${last?timeAgo(last.createdAt):''}</span></div><div class="thread-preview">${esc(preview)}</div></div></button>`;
   }).join('');
 }
+let chatObjectUrls=[];
+let conversationRenderToken=0;
+const chatEmojis=['😀','😃','😄','😁','😆','😅','😂','🤣','🥲','🥹','☺️','😊','😇','🙂','🙃','😉','😌','😍','🥰','😘','😗','😙','😚','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🫢','🫣','🤫','🤔','🫡','🤐','🤨','😐','😑','😶','🫥','😏','😒','🙄','😬','🤥','🫨','😔','😪','🤤','😴','😷','🤒','🤕','🤢','🤮','🥵','🥶','🥴','😵','🤯','🥳','🥸','😎','🤓','🧐','😕','🫤','😟','🙁','☹️','😮','😯','😲','😳','🥺','😦','😧','😨','😰','😥','😢','😭','😱','😖','😣','😞','😓','😩','😫','🥱','😤','😡','😠','🤬','💀','☠️','💩','🤡','👻','👽','🤖','😺','😸','😹','😻','😼','😽','🙀','😿','😾','🙈','🙉','🙊','💋','💌','💘','💝','💖','💗','💓','💞','💕','💟','❣️','💔','❤️','🧡','💛','💚','💙','🩵','💜','🤎','🖤','🩶','🤍','💯','💢','💥','💫','💦','💨','🕳️','💬','🗨️','🗯️','💭','💤','👋','🤚','🖐️','✋','🖖','🫱','🫲','🫳','🫴','👌','🤌','🤏','✌️','🤞','🫰','🤟','🤘','🤙','👈','👉','👆','👇','☝️','🫵','👍','👎','✊','👊','🤛','🤜','👏','🙌','🫶','👐','🤲','🤝','🙏','✍️','💅','🤳','💪','🦾','🦿','🦵','🦶','👂','🦻','👃','🧠','🫀','🫁','🦷','🦴','👀','👁️','👅','👄','🫦','👶','🧒','👦','👧','🧑','👨','👩','🧓','👴','👵','🙍','🙎','🙅','🙆','💁','🙋','🧏','🙇','🤦','🤷','👮','🕵️','💂','🥷','👷','🫅','🤴','👸','👳','👲','🧕','🤵','👰','🤰','🫃','🫄','🤱','👼','🎅','🤶','🧑‍🎄','🦸','🦹','🧙','🧚','🧛','🧜','🧝','🧞','🧟','💆','💇','🚶','🧍','🧎','🏃','💃','🕺','🕴️','👯','🧖','🧗','🤺','🏇','⛷️','🏂','🏌️','🏄','🚣','🏊','⛹️','🏋️','🚴','🚵','🤸','🤼','🤽','🤾','🤹','🧘','🛀','🛌','🧑‍🤝‍🧑','👭','👫','👬','💏','💑','👪','🗣️','👤','👥','🫂','🐶','🐱','🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐮','🐷','🐸','🐵','🐔','🐧','🐦','🐤','🦆','🦅','🦉','🦇','🐺','🐗','🐴','🦄','🐝','🪱','🐛','🦋','🐌','🐞','🐜','🪰','🪲','🦟','🦗','🕷️','🕸️','🦂','🐢','🐍','🦎','🦖','🦕','🐙','🦑','🦐','🦞','🦀','🐡','🐠','🐟','🐬','🐳','🐋','🦈','🐊','🐅','🐆','🦓','🦍','🦧','🦣','🐘','🦛','🦏','🐪','🐫','🦒','🦘','🦬','🐃','🐂','🐄','🐎','🐖','🐏','🐑','🦙','🐐','🦌','🦥','🦦','🦨','🦡','🐁','🐀','🐇','🐿️','🦔','🐉','🐲','🌵','🎄','🌲','🌳','🌴','🪵','🌱','🌿','☘️','🍀','🎍','🪴','🌾','🌷','🌹','🥀','🪻','🪷','🌺','🌸','🌼','🌻','🌞','🌝','🌛','🌜','🌚','🌕','🌖','🌗','🌘','🌑','🌒','🌓','🌔','🌙','🌎','🌍','🌏','🪐','💫','⭐','🌟','✨','⚡','☄️','🔥','🌪️','🌈','☀️','🌤️','⛅','🌧️','⛈️','🌩️','🌨️','❄️','☃️','⛄','🌬️','💨','💧','💦','☔','☂️','🌊','🎉','🎊','🎈','🎁','🎀','🎗️','🎟️','🎫','🎖️','🏆','🏅','🥇','🥈','🥉','⚽','⚾','🥎','🏀','🏐','🏈','🏉','🎾','🥏','🎳','🏏','🏑','🏒','🥍','🏓','🏸','🥊','🥋','🥅','⛳','⛸️','🎣','🤿','🎽','🎿','🛷','🥌','🎯','🪀','🪁','🔫','🎱','🔮','🪄','🎮','🕹️','🎰','🎲','🧩','🧸','🪅','🪩','🪆','♠️','♥️','♦️','♣️','♟️','🃏','🀄','🎴','🎭','🖼️','🎨','🧵','🪡','🧶','🪢','👓','🕶️','🥽','🥼','🦺','👔','👕','👖','🧣','🧤','🧥','🧦','👗','👘','🥻','🩱','🩲','🩳','👙','👚','🪭','👛','👜','👝','🎒','🩴','👞','👟','🥾','🥿','👠','👡','🩰','👢','👑','👒','🎩','🎓','🧢','🪖','⛑️','📿','💄','💍','💎','🔇','🔈','🔉','🔊','📢','📣','📯','🔔','🔕','🎼','🎵','🎶','🎤','🎧','📻','🎷','🪗','🎸','🎹','🎺','🎻','🪕','🥁','🪘','🪇','🪈','📱','📲','☎️','📞','📟','📠','🔋','🪫','🔌','💻','🖥️','🖨️','⌨️','🖱️','🖲️','💽','💾','💿','📀','🧮','🎥','🎞️','📽️','🎬','📺','📷','📸','📹','📼','🔍','🔎','🕯️','💡','🔦','🏮','🪔','📔','📕','📖','📗','📘','📙','📚','📓','📒','📃','📜','📄','📰','🗞️','📑','🔖','🏷️','💰','🪙','💴','💵','💶','💷','💸','💳','🧾','💹','✉️','📧','📨','📩','📤','📥','📦','📫','📪','📬','📭','📮','🗳️','✏️','✒️','🖋️','🖊️','🖌️','🖍️','📝','💼','📁','📂','🗂️','📅','📆','🗒️','🗓️','📇','📈','📉','📊','📋','📌','📍','📎','🖇️','📏','📐','✂️','🗃️','🗄️','🗑️','🔒','🔓','🔏','🔐','🔑','🗝️','🔨','🪓','⛏️','⚒️','🛠️','🗡️','⚔️','🔫','🪃','🏹','🛡️','🔧','🪛','🔩','⚙️','🗜️','⚖️','🦯','🔗','⛓️','🪝','🧰','🧲','🪜','⚗️','🧪','🧫','🧬','🔬','🔭','📡','💉','🩸','💊','🩹','🩺','🚪','🛗','🪞','🪟','🛏️','🛋️','🪑','🚽','🪠','🚿','🛁','🪤','🪒','🧴','🧷','🧹','🧺','🧻','🪣','🧼','🫧','🪥','🧽','🧯','🛒','🚬','⚰️','🪦','⚱️','🧿','🪬','🗿','🪧','🪪','🏧','🚮','🚰','♿','🚹','🚺','🚻','🚼','🚾','🛂','🛃','🛄','🛅','⚠️','🚸','⛔','🚫','🚳','🚭','🚯','🚱','🚷','📵','🔞','☢️','☣️','⬆️','↗️','➡️','↘️','⬇️','↙️','⬅️','↖️','↕️','↔️','↩️','↪️','⤴️','⤵️','🔃','🔄','🔙','🔚','🔛','🔜','🔝','🛐','⚛️','🕉️','✡️','☸️','☯️','✝️','☦️','☪️','☮️','🕎','🔯','🪯','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓','⛎','🔀','🔁','🔂','▶️','⏩','⏭️','⏯️','◀️','⏪','⏮️','🔼','⏫','🔽','⏬','⏸️','⏹️','⏺️','⏏️','🎦','🔅','🔆','📶','🛜','📳','📴','♀️','♂️','⚧️','✖️','➕','➖','➗','🟰','♾️','‼️','⁉️','❓','❔','❕','❗','〰️','💱','💲','⚕️','♻️','⚜️','🔱','📛','🔰','⭕','✅','☑️','✔️','❌','❎','➰','➿','〽️','✳️','✴️','❇️','©️','®️','™️','🆗','🆕','🆙','🆒','🆓','🆖','🆘','🆔','🔟','🔠','🔡','🔢','🔣','🔤','🅰️','🅱️','🆎','🅾️','🆑','🅿️','🈂️','🈁','🈯','🉐','🈹','🈚','🈲','🈳','㊗️','㊙️','🈴','🈵','🈶','🈷️','🈸','🈺','🈂️','🛑','🚩','🏁','🏴','🏳️','🏳️‍🌈','🏳️‍⚧️','🇮🇳','🇺🇸','🇬🇧','🇨🇦','🇦🇺','🇯🇵','🇰🇷','🇫🇷','🇩🇪','🇮🇹','🇧🇷','🇲🇽','🇿🇦','🇳🇿'];
+const chatAllowedExtensions=new Set(['jpg','jpeg','png','gif','webp','heic','mp4','webm','mov','pdf','doc','docx','ppt','pptx','xls','xlsx','txt','zip']);
+function chatDatabase() {
+  return new Promise((resolve,reject)=>{
+    if(!('indexedDB' in window)){reject(new Error('This browser does not support local file storage.'));return}
+    const request=indexedDB.open(CHAT_DB_NAME,1);
+    request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains('files'))request.result.createObjectStore('files')};
+    request.onsuccess=()=>resolve(request.result);
+    request.onerror=()=>reject(request.error||new Error('Could not open local file storage.'));
+  });
+}
+async function saveChatFile(id,file) {
+  const db=await chatDatabase();
+  try{return await new Promise((resolve,reject)=>{const tx=db.transaction('files','readwrite');tx.objectStore('files').put(file,id);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error||new Error('Could not save the attachment.'));tx.onabort=()=>reject(tx.error||new Error('Attachment save was cancelled.'))})}
+  finally{db.close()}
+}
+async function getChatFile(id) {
+  const db=await chatDatabase();
+  try{return await new Promise((resolve,reject)=>{const request=db.transaction('files','readonly').objectStore('files').get(id);request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>reject(request.error||new Error('Could not open the attachment.'))})}
+  finally{db.close()}
+}
+function chatPeople() {
+  const ids=new Set(state.messages.map(m=>m.personId));
+  state.connections.forEach(c=>{if(c.status==='accepted')ids.add(c.personId)});
+  return [...ids].map(getPerson).filter(p=>p&&p.id!=='me');
+}
+function renderConversationList() {
+  const root=document.getElementById('conversationList');if(!root)return;
+  const query=(document.getElementById('conversationSearch')?.value||'').trim().toLowerCase();
+  const people=chatPeople().sort((a,b)=>{
+    const lastA=state.messages.filter(m=>m.personId===a.id).reduce((max,m)=>Math.max(max,m.createdAt||0),0);
+    const lastB=state.messages.filter(m=>m.personId===b.id).reduce((max,m)=>Math.max(max,m.createdAt||0),0);
+    return lastB-lastA||a.name.localeCompare(b.name);
+  }).filter(p=>p.name.toLowerCase().includes(query));
+  root.innerHTML=people.length?people.map(person=>{
+    const last=state.messages.filter(m=>m.personId===person.id).sort((a,b)=>b.createdAt-a.createdAt)[0];
+    const preview=last?`${last.from==='me'?'You: ':''}${last.text||(last.attachment?`📎 ${last.attachment.name}`:'Message')}`:'Start a conversation';
+    return `<button class="conversation-contact ${activeChatId===person.id?'active':''}" onclick="openChat('${esc(person.id)}')">${avatarHTML(person)}<span class="conversation-copy"><span class="conversation-name"><span>${esc(person.name)}</span><span class="conversation-time">${last?timeAgo(last.createdAt):''}</span></span><span class="conversation-preview">${esc(preview)}</span></span></button>`;
+  }).join(''):'<div class="conversation-empty">No conversations found.<br>Connect with someone to start chatting.</div>';
+}
 function openChat(personId) {
-  const person = getPerson(personId);
-  if (!person || personId === 'me') { showToast('Your messages are in the inbox.'); return; }
-  activeChatId = personId;
-  modal(`<div class="chat-head">${avatarHTML(person)}<div><strong>${esc(person.name)}</strong><div class="post-meta">${esc(person.college || 'IIT student')} · demo chat</div></div><button type="button" aria-label="Close chat" onclick="closeModal()">×</button></div><div class="chat-history" id="chatHistory"></div><form class="chat-compose" onsubmit="sendChatMessage(event)"><input id="chatInput" autocomplete="off" maxlength="500" placeholder="Write a message…"><button type="submit" aria-label="Send message">↑</button></form>`,'chat-modal');
-  renderChatHistory();
+  const person=getPerson(personId);
+  if(!person||personId==='me')return;
+  activeChatId=personId;
+  if(document.getElementById('conversationsScreen').classList.contains('hidden'))showConversations();
+  else{renderConversationList();renderConversationChat()}
 }
-function renderChatHistory() {
-  const root = document.getElementById('chatHistory');
-  const person = getPerson(activeChatId);
-  if (!root || !person) return;
-  const messages = state.messages.filter(message=>message.personId===activeChatId);
-  root.innerHTML = messages.length ? messages.map(message=>`<div class="chat-bubble ${message.from==='me'?'mine':''}">${esc(message.text)}<small>${timeAgo(message.createdAt)}</small></div>`).join('') : '<div class="empty">You’re connected. Say hello and start the conversation.</div>';
-  root.scrollTop = root.scrollHeight;
+function renderConversationChat() {
+  const root=document.getElementById('conversationMain'),person=getPerson(activeChatId);
+  if(!root)return;
+  conversationRenderToken++;
+  chatObjectUrls.forEach(url=>URL.revokeObjectURL(url));chatObjectUrls=[];
+  if(!person){root.innerHTML='<div class="conversation-empty">Choose someone to start chatting.<br>Messages and shared files stay in this browser demo.</div>';return}
+  root.innerHTML=`<div class="conversation-top">${avatarHTML(person)}<div><strong>${esc(person.name)}</strong><small>${esc([person.branch,person.college].filter(Boolean).join(' · ')||'IIT student')}</small></div></div><div class="conversation-history" id="conversationHistory" aria-live="polite"></div><div id="emojiPicker" class="emoji-picker hidden" aria-label="Choose an emoji">${chatEmojis.map(emoji=>`<button type="button" onclick="insertChatEmoji('${emoji}')" aria-label="${emoji}">${emoji}</button>`).join('')}</div><form class="conversation-compose" onsubmit="sendConversationMessage(event)"><button type="button" class="conversation-tool" onclick="toggleEmojiPicker()" aria-label="Add emoji">😊</button><button type="button" class="conversation-tool" onclick="document.getElementById('conversationAttachment').click()" aria-label="Attach a file">＋</button><input id="conversationAttachment" type="file" hidden accept="image/*,video/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.zip" onchange="showChatFileChoice(event)"><textarea id="conversationInput" rows="1" maxlength="2000" placeholder="Write a message…" aria-label="Write a message" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();this.form.requestSubmit()}"></textarea><button class="btn" type="submit" aria-label="Send message">Send</button></form><div class="attachment-note" id="attachmentNote">Share photos, videos, PDFs, and documents up to 15 MB.</div>`;
+  renderConversationHistory();
 }
-function sendChatMessage(event) {
+async function renderConversationHistory() {
+  const root=document.getElementById('conversationHistory');if(!root)return;
+  const renderToken=++conversationRenderToken;
+  chatObjectUrls.forEach(url=>URL.revokeObjectURL(url));chatObjectUrls=[];
+  const conversationId=activeChatId;
+  const messages=state.messages.filter(m=>m.personId===conversationId).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0));
+  if(!messages.length){root.innerHTML='<div class="conversation-empty">Say hello 👋</div>';return}
+  root.innerHTML='';
+  let previousDayKey='';
+  for(const message of messages){
+    let attachmentHtml='';
+    if(message.attachment?.id){
+      try{
+        const blob=await getChatFile(message.attachment.id);
+        if(conversationId!==activeChatId||renderToken!==conversationRenderToken||root!==document.getElementById('conversationHistory'))return;
+        if(blob){const url=URL.createObjectURL(blob);chatObjectUrls.push(url);const type=message.attachment.type||blob.type||'';
+          if(type.startsWith('image/'))attachmentHtml=`<a href="${url}" target="_blank" rel="noopener"><img src="${url}" alt="${esc(message.attachment.name)}"></a>`;
+          else if(type.startsWith('video/'))attachmentHtml=`<video controls preload="metadata" src="${url}"></video>`;
+          else attachmentHtml=`<a class="conversation-file" href="${url}" download="${esc(message.attachment.name)}"><span class="conversation-file-icon">${message.attachment.name.toLowerCase().endsWith('.pdf')?'📕':'📄'}</span><span><span class="conversation-file-name">${esc(message.attachment.name)}</span><br><span class="conversation-file-size">${formatChatFileSize(message.attachment.size)}</span></span></a>`;
+        } else attachmentHtml=`<div class="conversation-file"><span class="conversation-file-icon">📄</span><span class="conversation-file-name">${esc(message.attachment.name)} · file unavailable</span></div>`;
+      }catch{attachmentHtml=`<div class="conversation-file"><span class="conversation-file-icon">📄</span><span class="conversation-file-name">${esc(message.attachment.name)} · could not open</span></div>`}
+    }
+    if(conversationId!==activeChatId||renderToken!==conversationRenderToken||root!==document.getElementById('conversationHistory'))return;
+    const dayKey=chatDayKey(message.createdAt);
+    if(dayKey!==previousDayKey){
+      const separator=document.createElement('div');
+      separator.className='conversation-day-separator';
+      separator.textContent=formatChatDay(message.createdAt);
+      root.appendChild(separator);
+      previousDayKey=dayKey;
+    }
+    const bubble=document.createElement('div');bubble.className=`conversation-bubble ${message.from==='me'?'mine':''}`;
+    bubble.innerHTML=`${attachmentHtml}${message.text?`<div>${esc(message.text).replace(/\n/g,'<br>')}</div>`:''}<small>${timeAgo(message.createdAt)}</small>`;
+    if(conversationId!==activeChatId||renderToken!==conversationRenderToken||root!==document.getElementById('conversationHistory'))return;
+    root.appendChild(bubble);
+  }
+  root.scrollTop=root.scrollHeight;
+}
+function chatDayKey(timestamp) {
+  const date=new Date(Number(timestamp)||Date.now());
+  return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+}
+function formatChatDay(timestamp) {
+  return new Intl.DateTimeFormat(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(new Date(Number(timestamp)||Date.now()));
+}
+function formatChatFileSize(bytes) {const n=Number(bytes)||0;return n<1024?`${n} B`:n<1024*1024?`${(n/1024).toFixed(0)} KB`:`${(n/1024/1024).toFixed(1)} MB`}
+function showChatFileChoice(event) {
+  const file=event.target.files?.[0],note=document.getElementById('attachmentNote');if(!file||!note)return;
+  const ext=(file.name.split('.').pop()||'').toLowerCase();
+  if(file.size>MAX_CHAT_FILE_BYTES){showToast('Choose a file smaller than 15 MB.');event.target.value='';return}
+  if(!(file.type.startsWith('image/')||file.type.startsWith('video/')||chatAllowedExtensions.has(ext))){showToast('That file type is not supported.');event.target.value='';return}
+  note.textContent=`Ready to share: ${file.name} (${formatChatFileSize(file.size)}). Add a message or press Send.`;
+}
+function toggleEmojiPicker() {document.getElementById('emojiPicker')?.classList.toggle('hidden')}
+function insertChatEmoji(emoji) {
+  const input=document.getElementById('conversationInput');if(!input)return;
+  const start=input.selectionStart,end=input.selectionEnd;
+  input.value=input.value.slice(0,start)+emoji+input.value.slice(end);
+  input.focus();input.setSelectionRange(start+emoji.length,start+emoji.length);
+}
+async function sendConversationMessage(event) {
   event.preventDefault();
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-  state.messages.push({id:'msg'+Date.now(),personId:activeChatId,from:'me',text,mode:state.mode,createdAt:Date.now()});
-  save(); renderChatHistory(); renderMessages(); input.value=''; input.focus();
+  const input=document.getElementById('conversationInput'),fileInput=document.getElementById('conversationAttachment');
+  const text=input?.value.trim()||'',file=fileInput?.files?.[0];
+  if(!activeChatId||(!text&&!file))return;
+  const id=`msg${Date.now()}${Math.random().toString(16).slice(2,7)}`;
+  let attachment=null;
+  if(file){
+    if(file.size>MAX_CHAT_FILE_BYTES){showToast('Choose a file smaller than 15 MB.');return}
+    const ext=(file.name.split('.').pop()||'').toLowerCase();
+    if(!(file.type.startsWith('image/')||file.type.startsWith('video/')||chatAllowedExtensions.has(ext))){showToast('That file type is not supported.');return}
+    try{await saveChatFile(id,file);attachment={id,name:file.name,type:file.type||'application/octet-stream',size:file.size}}
+    catch(error){console.error(error);showToast('Could not save this attachment in the browser.');return}
+  }
+  state.messages.push({id,personId:activeChatId,from:'me',text,attachment,mode:state.mode,createdAt:Date.now()});
+  try{save()}catch(error){console.error(error);state.messages.pop();showToast('The message could not be saved. Your browser storage may be full.');return}
+  if(input)input.value='';if(fileInput)fileInput.value='';
+  const note=document.getElementById('attachmentNote');if(note)note.textContent='Share photos, videos, PDFs, and documents up to 15 MB.';
+  document.getElementById('emojiPicker')?.classList.add('hidden');
+  renderConversationHistory();renderConversationList();renderMessages();input?.focus();
 }
 
 /* Post composer: caption, photo, campus and target feed */
@@ -780,11 +809,16 @@ function createPost() {
 
 /* Profile module */
 function showProfile(personId='me') {
+  document.body.classList.remove('conversations-open');
   selectedProfileId = personId;
   document.getElementById('dashboardView').classList.add('hidden');
+  document.getElementById('conversationsScreen').classList.add('hidden');
   document.getElementById('profileScreen').classList.remove('hidden');
+  document.getElementById('conversationsModeTab').classList.remove('active');
+  document.getElementById('conversationsModeTab').setAttribute('aria-current','false');
+  document.getElementById('personalModeTab').classList.toggle('active',state.mode==='friends');
+  document.getElementById('professionalModeTab').classList.toggle('active',state.mode==='professional');
   document.getElementById('homeNavButton').classList.remove('active');
-  document.getElementById('profileNavButton').classList.toggle('active',personId==='me');
   renderProfile();
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -839,8 +873,6 @@ function showProfilePost(postId) {
 function editProfile() {
   const person=state.profile;
   if (!person) return;
-  const interestData=interestProfile(person);
-  const favoriteNames=[...interestData.favorites].map(key=>interestData.all.get(key)).filter(Boolean);
   selectedBanner=null;
   selectedAvatar=null;
   modal(`<div class="eyebrow"><span></span> YOUR PROFILE</div><h2>Edit your profile</h2><p class="modal-intro">Update the details people see when they find you.</p>
@@ -850,7 +882,6 @@ function editProfile() {
     <div class="form-grid"><div class="field"><label for="editCollege">College</label><select id="editCollege">${campuses.map(v=>`<option ${person.college===v?'selected':''}>${v}</option>`).join('')}</select></div><div class="field"><label for="editBranch">Branch</label><input id="editBranch" value="${esc(person.branch||'')}"></div></div>
     <div class="field"><label for="editTagline">Tagline <span style="font-weight:400">(up to 150 characters)</span></label><input id="editTagline" maxlength="150" value="${esc(person.tagline||person.bio||'')}"></div>
     <div class="field"><label for="editInterests">Interests <span style="font-weight:400">(comma separated)</span></label><input id="editInterests" value="${esc((person.interests||[]).join(', '))}"></div>
-    <div class="field"><label for="editFavoriteInterests">Favourite interests <span style="font-weight:400">(up to 3, comma separated)</span></label><input id="editFavoriteInterests" value="${esc(favoriteNames.join(', '))}"><small>Favourite interests count twice as much in match scores. Use names from your interests list.</small></div>
     <div class="field"><label for="editWebsite">Website link</label><input id="editWebsite" type="url" placeholder="https://example.com" value="${esc(person.website||'')}"></div>
     <div class="field"><label for="editBio">About you</label><textarea id="editBio" maxlength="500">${esc(person.bio||'')}</textarea></div>
     <div class="field"><label for="editProBio">Professional bio</label><textarea id="editProBio" maxlength="500">${esc(person.professionalBio||'')}</textarea></div>
@@ -890,9 +921,6 @@ function saveProfile() {
   profile.tagline=document.getElementById('editTagline').value.trim().slice(0,150);
   profile.interests=document.getElementById('editInterests').value.split(',').map(value=>value.trim()).filter(Boolean);
   profile.personalTags=profile.interests;
-  const interestKeys=new Set(profile.interests.map(value=>value.toLocaleLowerCase()));
-  profile.favoriteInterests=[...new Set(document.getElementById('editFavoriteInterests').value.split(',').map(value=>value.trim()).filter(Boolean).filter(value=>interestKeys.has(value.toLocaleLowerCase())))].slice(0,3);
-  ['favorite_interests','favourite_interests','favouriteInterests'].forEach(field=>delete profile[field]);
   profile.website=document.getElementById('editWebsite').value.trim();
   profile.bio=document.getElementById('editBio').value.trim();
   profile.professionalBio=document.getElementById('editProBio').value.trim();
