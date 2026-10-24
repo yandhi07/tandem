@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+  <link rel="stylesheet" href="css/extra.css">
+  <link rel="icon" href="data:,">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -117,46 +119,12 @@
     </div>
   </div>
   <div id="modalRoot"></div><div id="toastRoot"></div>
-<script>
-const KEY='connectiit-demo-v1';
-const starterPeople=[
- {id:'u1',name:'Aarav Mehta',year:'2nd year',branch:'Computer Science',bio:'Building small robots and big ideas.',interests:['Robotics','Photography','Hiking'],skills:['Arduino','Python'],goals:['friends','professional'],emoji:'🧑🏻‍🔧',color:'#f5c7ad'},
- {id:'u2',name:'Diya Nair',year:'3rd year',branch:'Design',bio:'Designing things that make everyday life better.',interests:['Design','Music','Running'],skills:['Figma','User research'],goals:['friends','professional'],emoji:'👩🏽‍🎨',color:'#cad9f5'},
- {id:'u3',name:'Rohan Das',year:'1st year',branch:'Electrical Engineering',bio:'Learning, playing guitar, and finding good chai.',interests:['Music','Football','Reading'],skills:['Electronics'],goals:['friends'],emoji:'🎸',color:'#ecd5ef'},
- {id:'u4',name:'Meera Shah',year:'4th year',branch:'Data Science',bio:'Working on an AI project for accessible learning.',interests:['AI','Reading','Volunteering'],skills:['Python','Machine learning'],goals:['professional'],emoji:'🚀',color:'#f0dfaa'},
- {id:'u5',name:'Kabir Singh',year:'2nd year',branch:'Mechanical Engineering',bio:'Motorsport fan. Always up for a weekend trek.',interests:['Robotics','Hiking','Football'],skills:['CAD','Prototyping'],goals:['friends','professional'],emoji:'🏎️',color:'#bde0d3'},
- {id:'u6',name:'Ananya Rao',year:'3rd year',branch:'Civil Engineering',bio:'Curious about sustainable cities and good coffee.',interests:['Photography','Design','Sustainability'],skills:['Research','Figma'],goals:['professional'],emoji:'🌿',color:'#f0c5c5'}
-];
-function freshState(){return {profile:null,people:starterPeople,posts:[{id:'seed1',authorId:'u4',body:'Our team just finished the first prototype for an AI reading assistant. It’s rough, but seeing it work for the first time felt incredible. Looking for feedback from anyone interested in accessibility or education tech! ✨',type:'professional',createdAt:Date.now()-3600000},{id:'seed2',authorId:'u3',body:'Anyone up for a casual guitar jam by the student center this weekend? Beginners very welcome 🎸',type:'personal',createdAt:Date.now()-7200000}],connections:[],myPosts:[],mode:'friends'}}
-let state=loadState(),selectedPhoto=null;
-function loadState(){try{const x=JSON.parse(localStorage.getItem(KEY));return x?{...freshState(),...x}:freshState()}catch{return freshState()}}
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
-function initials(n){return (n||'?').trim().split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase()}
-function avatarHTML(person,cls='mini-avatar'){return `<div class="${cls}" style="background:${person.color||'#dce9ce'}">${person.emoji||initials(person.name)}</div>`}
-function openSignup(){if(state.profile){showApp();return}modal(`<div class="eyebrow"><span></span> WELCOME TO CONNECTIIT</div><h2>Let's get to know you.</h2><p>Make a simple profile and we’ll help you find your people. Your demo profile is saved in this browser.</p><div class="field"><label>Your name</label><input id="newName" placeholder="e.g. Aanya Sharma" maxlength="40"></div><div class="field"><label>Year and branch</label><input id="newDetail" placeholder="e.g. 2nd year · Computer Science" maxlength="55"></div><div class="field"><label>What are you here for?</label><div class="chips"><button class="chip on" data-goal="friends" onclick="toggleChip(this)">☀ Make friends</button><button class="chip" data-goal="professional" onclick="toggleChip(this)">✳ Professional connections</button></div></div><div class="field"><label>Interests <span style="font-weight:400;color:var(--muted)">(comma separated)</span></label><input id="newInterests" placeholder="e.g. music, robotics, design"></div><div class="modal-actions"><button class="btn" onclick="finishSignup()">Create my profile ↗</button></div>`)}
-function toggleChip(el){el.classList.toggle('on')}
-function finishSignup(){const name=document.getElementById('newName').value.trim();if(!name){document.getElementById('newName').focus();showToast('Add your name to continue');return}const goals=[...document.querySelectorAll('[data-goal].on')].map(x=>x.dataset.goal);state.profile={id:'me',name,detail:document.getElementById('newDetail').value.trim()||'IIT · Student',interests:document.getElementById('newInterests').value.split(',').map(x=>x.trim()).filter(Boolean),goals:goals.length?goals:['friends'],emoji:'🙂',color:'#dce9ce'};save();closeModal();showApp();showToast(`Welcome to connectIIT, ${name.split(' ')[0]}!`)}
-function showApp(){document.getElementById('landing').style.display='none';document.getElementById('app').style.display='block';renderApp();window.scrollTo(0,0)}
-function returnToLanding(){document.getElementById('app').style.display='none';document.getElementById('landing').style.display='block';window.scrollTo(0,0)}
-function renderApp(){const p=state.profile;if(!p)return;document.getElementById('topName').textContent=p.name;document.getElementById('topAvatar').textContent=p.emoji;document.getElementById('profileAvatar').textContent=p.emoji;document.getElementById('profileName').textContent=p.name;document.getElementById('profileDetail').textContent=p.detail;document.getElementById('composerAvatar').textContent=p.emoji;document.getElementById('connectionCount').textContent=state.connections.filter(c=>c.status==='accepted').length;document.getElementById('postCount').textContent=state.posts.filter(x=>x.authorId==='me').length;setMode(state.mode,false);renderPosts();renderSuggestions()}
-function setMode(mode,rerender=true){state.mode=mode;document.getElementById('friendsMode').classList.toggle('selected',mode==='friends');document.getElementById('proMode').classList.toggle('selected',mode==='professional');if(rerender){save();renderSuggestions()}}
-function matched(person){const mine=state.profile.interests||[];return person.interests.filter(i=>mine.some(m=>m.toLowerCase()===i.toLowerCase()))}
-function renderSuggestions(){if(!state.profile)return;const list=state.people.filter(p=>p.id!=='me'&&p.goals.includes(state.mode));const box=document.getElementById('suggestions');if(!list.length){box.innerHTML='<div class="empty">No people to show yet.</div>';return}box.innerHTML=list.slice(0,5).map(p=>{const m=matched(p);const conn=state.connections.find(c=>c.personId===p.id);const label=conn?.status==='accepted'?'Connected':conn?.status==='pending'?'Requested':'+ Connect';return `<div class="suggestion">${avatarHTML(p)}<div><div class="sugg-name">${esc(p.name)}</div><div class="sugg-detail">${esc(p.branch||p.year||'IIT student')}</div></div><button class="sugg-btn" ${conn?'disabled':''} onclick="connectTo('${p.id}')">${label}</button></div><div class="why">${m.length?`You both like ${m.slice(0,2).join(' and ')}`:state.mode==='friends'?'A student in your community':'Open to professional connections'}</div>`}).join('')}
-function connectTo(id){const existing=state.connections.find(c=>c.personId===id);if(existing)return;state.connections.push({personId:id,status:'pending'});save();renderApp();showToast('Connection request sent!')}
-function createPost(){const text=document.getElementById('postText').value.trim();if(!text&&!selectedPhoto){showToast('Write something or add a photo first');return}state.posts.unshift({id:'post'+Date.now(),authorId:'me',body:text,type:document.getElementById('postType').value,photo:selectedPhoto,createdAt:Date.now()});selectedPhoto=null;document.getElementById('photoInput').value='';document.getElementById('postText').value='';save();renderApp();showToast('Your update is live!')}
-function photoChosen(e){const f=e.target.files[0];if(!f)return;if(f.size>1200000){showToast('Choose an image under 1.2 MB for this demo');e.target.value='';return}const reader=new FileReader();reader.onload=()=>{selectedPhoto=reader.result;showToast('Photo added — write a caption and share')};reader.readAsDataURL(f)}
-function renderPosts(){const root=document.getElementById('feed');if(!root)return;const f=document.getElementById('feedFilter').value;const list=state.posts.filter(p=>f==='all'||p.type===f);if(!list.length){root.innerHTML='<div class="panel empty">No updates yet. Be the first to share something!</div>';return}root.innerHTML=list.map(p=>{const a=p.authorId==='me'?state.profile:state.people.find(x=>x.id===p.authorId)||{name:'IIT student',emoji:'🙂',color:'#dce9ce'};return `<article class="panel post"><div class="post-head">${avatarHTML(a)}<div><div class="post-author">${esc(a.name)}</div><div class="post-meta">${timeAgo(p.createdAt)} · IIT</div></div><span class="post-kind">${p.type==='professional'?'✳ Professional':'☀ Personal'}</span></div>${p.body?`<div class="post-copy">${esc(p.body)}</div>`:''}${p.photo?`<img class="post-photo" src="${p.photo}" alt="Photo shared by ${esc(a.name)}">`:''}<div class="post-actions"><button onclick="showToast('Likes are coming soon')">♡ Like</button><button onclick="showToast('Start a connection to keep the conversation going')">↗ Connect</button></div></article>`}).join('')}
-function timeAgo(t){const m=Math.max(1,Math.floor((Date.now()-t)/60000));return m<60?`${m}m ago`:m<1440?`${Math.floor(m/60)}h ago`:`${Math.floor(m/1440)}d ago`}
-function editProfile(){const p=state.profile;modal(`<h2>Edit your profile</h2><p>Keep it simple. You can change these details anytime.</p><div class="field"><label>Name</label><input id="editName" value="${esc(p.name)}" maxlength="40"></div><div class="field"><label>Year and branch</label><input id="editDetail" value="${esc(p.detail)}" maxlength="55"></div><div class="field"><label>Interests <span style="font-weight:400;color:var(--muted)">(comma separated)</span></label><input id="editInterests" value="${esc((p.interests||[]).join(', '))}"></div><div class="field"><label>About you</label><textarea id="editBio" placeholder="A short intro">${esc(p.bio||'')}</textarea></div><div class="modal-actions"><button class="btn light" onclick="resetDemo()">Reset demo</button><button class="btn" onclick="saveProfile()">Save changes</button></div>`)}
-function saveProfile(){state.profile.name=document.getElementById('editName').value.trim()||state.profile.name;state.profile.detail=document.getElementById('editDetail').value.trim();state.profile.interests=document.getElementById('editInterests').value.split(',').map(x=>x.trim()).filter(Boolean);state.profile.bio=document.getElementById('editBio').value.trim();save();closeModal();renderApp();showToast('Profile updated')}
-function resetDemo(){if(confirm('Clear your demo profile and posts from this browser?')){localStorage.removeItem(KEY);state=freshState();closeModal();returnToLanding();showToast('Demo reset')}}
-function modal(html){document.getElementById('modalRoot').innerHTML=`<div class="modal-backdrop" onclick="if(event.target===this)closeModal()"><div class="modal">${html}</div></div>`;const input=document.querySelector('.modal input');if(input)input.focus()}
-function closeModal(){document.getElementById('modalRoot').innerHTML=''}
-function showToast(msg){const root=document.getElementById('toastRoot');root.innerHTML=`<div class="toast">${esc(msg)}</div>`;clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>root.innerHTML='',2400)}
-function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function skipIntro(){document.getElementById('introScreen')?.classList.add('dismissed')}
-document.getElementById('introScreen')?.addEventListener('animationend',event=>{if(event.animationName==='intro-out')event.currentTarget.remove()});
-if(state.profile)showApp();
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/posts.js"></script>
+<script src="js/network.js"></script>
+<script src="js/chat.js"></script>
 </body>
 </html>
