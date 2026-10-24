@@ -1,5 +1,128 @@
 /* auth.js — signup, login, session restore, profile editing (Member 1) */
 
+/* IIT email allowlist and signup OTP-button gate for the prototype UI. */
+/* Public project URL/key are safe to use in a browser. The service-role key stays in the Edge Function. */
+window.ConnectIITEmailRegistry = Object.freeze({
+  async request(action, email) {
+    const response = await fetch('https://gywholrlerycndwhsziq.supabase.co/functions/v1/check-signup-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': 'sb_publishable_9YjaGyLhfqzAn8yeTLVHog_qwDG4GJy'
+      },
+      body: JSON.stringify({ action, email: String(email || '').trim().toLowerCase() })
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || 'Could not check registration right now.');
+    return result;
+  }
+});
+
+(function installIITEmailGate() {
+  const allowedDomains = [
+    'iitb.ac.in', 'iitd.ac.in', 'smail.iitm.ac.in', 'iitk.ac.in',
+    'kgpian.iitkgp.ac.in', 'iitr.ac.in', 'iitg.ac.in', 'iith.ac.in',
+    'iitbhu.ac.in', 'iitism.ac.in', 'iitbbs.ac.in', 'iitgn.ac.in',
+    'iitj.ac.in', 'iiti.ac.in', 'iitmandi.ac.in', 'iitrpr.ac.in',
+    'iitp.ac.in', 'iitbhilai.ac.in', 'iitgoa.ac.in', 'iitjammu.ac.in',
+    'iitdh.ac.in', 'iitpkd.ac.in', 'iittp.ac.in'
+  ];
+
+  function isValidEmailSyntax(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
+  }
+
+  function isAllowedIITEmail(email) {
+    const normalized = String(email || '').trim().toLowerCase();
+    if (!isValidEmailSyntax(normalized)) return false;
+    const domain = normalized.slice(normalized.lastIndexOf('@') + 1);
+    return allowedDomains.some(allowed =>
+      domain === allowed || domain.endsWith('.' + allowed)
+    );
+  }
+
+  function syncSignupEmailGate() {
+    const input = document.getElementById('signupEmail');
+    if (!input) return;
+
+    const field = input.closest('.field');
+    let error = document.getElementById('signupEmailError');
+    if (!error && field) {
+      error = document.createElement('div');
+      error.id = 'signupEmailError';
+      error.className = 'email-validation-error';
+      error.setAttribute('role', 'alert');
+      error.setAttribute('aria-live', 'polite');
+      field.insertAdjacentElement('afterend', error);
+      input.setAttribute('aria-describedby', error.id);
+    }
+
+    const value = input.value.trim().toLowerCase();
+    const validSyntax = isValidEmailSyntax(value);
+    const allowed = isAllowedIITEmail(value);
+    const message = value && validSyntax && !allowed
+      ? 'Invalid email ID. Use your IIT email address.'
+      : '';
+    if (error && error.textContent !== message) error.textContent = message;
+
+    const modalRoot = input.closest('.modal');
+    const button = modalRoot?.querySelector('.otp-row .btn');
+    if (button) {
+      let verified = false;
+      if (typeof signupDraft !== 'undefined') verified = signupDraft.otpVerified === true;
+      const disabled = !allowed || verified;
+      if (button.disabled !== disabled) button.disabled = disabled;
+      button.classList.toggle('email-gate-disabled', disabled);
+      button.setAttribute('aria-disabled', String(disabled));
+      button.style.opacity = disabled ? '0.45' : '';
+      button.style.cursor = disabled ? 'not-allowed' : '';
+    }
+  }
+
+  window.IITEmailAuth = Object.freeze({
+    isAllowedEmail: isAllowedIITEmail,
+    isValidEmailSyntax
+  });
+
+  document.addEventListener('input', event => {
+    if (event.target?.id === 'signupEmail') syncSignupEmailGate();
+  });
+  document.addEventListener('change', event => {
+    if (event.target?.id === 'signupEmail') syncSignupEmailGate();
+  });
+  document.addEventListener('click', event => {
+    const target = event.target;
+    const button = target instanceof Element ? target.closest('.otp-row .btn') : null;
+    if (!button) return;
+    const input = document.getElementById('signupEmail');
+    if (!input || isAllowedIITEmail(input.value)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    syncSignupEmailGate();
+    input.focus();
+    if (typeof showToast === 'function') {
+      showToast('Enter an allowed IIT email address before requesting the OTP.');
+    }
+  }, true);
+
+  const style = document.createElement('style');
+  style.textContent = '.email-validation-error{min-height:16px;margin-top:-8px;margin-bottom:10px;color:#c62828;font-size:11px;font-weight:600}.otp-row .btn.email-gate-disabled{opacity:.45;cursor:not-allowed;filter:saturate(.55)}';
+  document.head.appendChild(style);
+
+  if (document.body) {
+    const observer = new MutationObserver(syncSignupEmailGate);
+    observer.observe(document.body, { childList: true, subtree: true });
+    syncSignupEmailGate();
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new MutationObserver(syncSignupEmailGate);
+      observer.observe(document.body, { childList: true, subtree: true });
+      syncSignupEmailGate();
+    }, { once: true });
+  }
+})();
+
+
 async function fetchProfile(id){
   const {data,error}=await sb.from('profiles').select('*').eq('id',id).maybeSingle();
   if(error){console.error(error);return null}
@@ -37,6 +160,7 @@ async function finishSignup(){
   const name=val('newName'),email=val('newEmail'),password=document.getElementById('newPassword').value;
   if(!name){document.getElementById('newName').focus();showToast('Add your name to continue');return}
   if(!email){document.getElementById('newEmail').focus();showToast('Add your email to continue');return}
+  if(!window.IITEmailAuth.isAllowedEmail(email)){document.getElementById('newEmail').focus();showToast('Use your IIT email address to create an account');return}
   if(password.length<6){document.getElementById('newPassword').focus();showToast('Password must be at least 6 characters');return}
   const goals=[...document.querySelectorAll('[data-goal].on')].map(x=>x.dataset.goal);
   const btn=document.getElementById('signupBtn');btn.disabled=true;btn.textContent='Creating…';
@@ -61,6 +185,7 @@ function openLogin(){
 async function doLogin(){
   const email=val('loginEmail'),password=document.getElementById('loginPassword').value;
   if(!email||!password){showToast('Enter your email and password');return}
+  if(!window.IITEmailAuth.isAllowedEmail(email)){document.getElementById('loginEmail').focus();showToast('Log in with your IIT email address');return}
   const btn=document.getElementById('loginBtn');btn.disabled=true;btn.textContent='Logging in…';
   const {data,error}=await sb.auth.signInWithPassword({email,password});
   if(error){showToast(error.message);btn.disabled=false;btn.textContent='Log in ↗';return}
@@ -103,4 +228,4 @@ async function restoreSession(){
     if(data.session){const profile=await fetchProfile(data.session.user.id);if(profile)onLogin(profile)}
   }catch(e){console.error('restoreSession',e)}
 }
-restoreSession();
+if (typeof sb !== 'undefined') restoreSession();
