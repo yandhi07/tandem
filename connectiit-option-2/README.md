@@ -1,30 +1,32 @@
 # connectIIT
 
-A small, editable, browser-based prototype for a campus social and professional community.
+An editable, browser based prototype for a campus community that brings together friendships and professional connections.
 
 ## Run it
 
 Open `index.html` in a modern browser. No build step or package install is needed.
 
-## What works in this prototype
+## What the demo includes
 
-- Landing page with a get-started flow
-- Create and edit a local demo profile
-- Choose a social or professional goal
-- Starter profiles with simple shared-interest matching
-- Send local demo connection requests
-- Publish personal or professional text posts
-- Attach a small image to a post
-- Keep your profile, connections, and posts in this browser using local storage
+- Animated Earth intro and landing page with sign in and join actions
+- Three step onboarding for identity, IIT academics, interests, and professional goals
+- A visible demo OTP (`246810`) for judge demonstrations
+- Personal and professional feeds, each with sample posts and suggested profiles
+- Local post creation with a caption, photo, campus tag, and target feed
+- A messages list and local chat windows
+- A suggestion card with campus illustration, shared interests, and Yes / No actions
+- Profile photo and IIT banner uploads, editable highlights, follow / unfollow, and media / post tabs
+- Demo profiles, posts, follows, and messages saved in this browser's local storage
 
-## Important prototype limitation
+## Prototype limits
 
-This version does **not** yet use Supabase. The profile and posts live only in the browser where they were created; there is no real account, cross-device sync, or private messaging. The sample student profiles are fictional demo data. The app is written in one `index.html` file so a beginner can quickly edit its text, colors, and behavior. For a team build, the next step is to connect Supabase Auth, Postgres, Storage, and row-level security.
+This is still a front-end prototype. It does not connect to Supabase, send real email or OTP messages, verify passwords, synchronize accounts across browsers, or deliver messages to other people. Sign in uses a saved local email and accepts any non-empty demo password. Connect Supabase Auth, Postgres, and Storage before using real student data. The included profiles and posts are sample content.
 
 ## Easy edits
 
-- Change name, page copy, and sample posts in `index.html`.
-- Change theme colors in the `:root` section near the top of the `<style>` block.
-- Change sample profiles in the `starterPeople` array in the `<script>` block.
-- Change onboarding fields in `openSignup()`.
-- Change recommendation behavior in `matched()` and `renderSuggestions()`.
+- Change landing-page copy and colors in `index.html`.
+- Edit sample students in the `starterPeople` array in the script.
+- Add preference choices in the `tagGroups` object.
+- Adjust the campus list in the `campuses` array.
+- Change onboarding, feed, suggestion, chat, and profile behavior in the clearly named functions in the script.
+- Adjust layout and mobile styles in the `<style>` block.
