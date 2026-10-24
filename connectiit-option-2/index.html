@@ -63,6 +63,7 @@
     @media(max-width:620px){.navlinks{gap:7px}.navlinks .btn{padding:8px 10px;font-size:10px}.navlinks>a:not(.btn){display:none}.topbar{gap:8px}.topbar>.brand{font-size:19px}.preference-block{padding:11px}.preference-block>h3{align-items:flex-start;flex-direction:column;gap:4px}}
 
     .avatar-photo{object-fit:cover;display:block}.user-mini .avatar-photo{width:100%;height:100%;border-radius:inherit}.profile-large-avatar .avatar-photo{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}.modal-bottom>span{flex:1}
+    .find-match-button{width:100%;margin:0 0 12px;border:1px solid #d8e5d2;border-radius:12px;padding:10px 12px;background:#edf4e9;color:var(--green);font-size:11px;font-weight:800;transition:background .18s,transform .18s}.find-match-button:hover{background:#e2eedb;transform:translateY(-1px)}.find-match-button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}.match-results-intro{margin:0 0 10px;color:var(--muted);font-size:10px;line-height:1.5}.match-results-list{display:grid;gap:9px}.match-result{padding:11px;border:1px solid var(--line);border-radius:14px;background:#fffefa}.match-result-heading{display:flex;align-items:center;gap:9px}.match-result-heading .mini-avatar{width:37px;height:37px;flex:none}.match-result-copy{min-width:0;flex:1}.match-result-copy strong,.match-result-copy small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.match-result-copy strong{font-size:11px}.match-result-copy small{margin-top:3px;color:var(--muted);font-size:9px}.match-result-score{color:var(--green);font-size:13px;font-weight:800;white-space:nowrap}.match-meter{height:5px;margin:9px 0 7px;border-radius:99px;background:#e9eee6;overflow:hidden}.match-meter span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#88b774,var(--green))}.match-result-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:9px}.match-result-bottom button{border:0;background:transparent;color:var(--green);font-size:9px;font-weight:800;padding:2px}.match-percent-pill{display:inline-flex;margin-top:9px;padding:6px 9px;border-radius:99px;background:#eaf3e5;color:var(--green);font-size:10px;font-weight:800}.favorite-interest-picker{border-top:1px solid #e8ece5;margin-top:14px;padding-top:13px}.favorite-interest-picker h3{display:flex;justify-content:space-between;gap:8px;margin:0 0 5px;font:700 12px Manrope,sans-serif}.favorite-interest-picker h3 span{font:800 8px 'DM Sans',sans-serif;letter-spacing:.08em;color:#839087}.favorite-interest-picker .form-note{margin:0 0 8px}.favorite-tag{font-size:10px}
   </style>
 </head>
 <body>
@@ -163,12 +164,12 @@ const tagGroups = {
   Gaming: ['BGMI', 'Valorant', 'FIFA', 'Minecraft', 'Casual games']
 };
 const starterPeople = [
-  {id:'u1', name:'Aarav Mehta', handle:'aaravbuilds', year:'2nd year', branch:'Computer Science', college:'IIT Delhi', course:'B.Tech', bio:'Building small robots and big ideas.', interests:['Robotics','Photography','Hiking','Indie'], skills:['Arduino','Python'], goals:['friends','professional'], emoji:'🧑🏻‍🔧', color:'#f5c7ad', currentProject:'Campus delivery rover'},
-  {id:'u2', name:'Diya Nair', handle:'diyadesigns', year:'3rd year', branch:'Design', college:'IIT Bombay', course:'B.Des', bio:'Designing things that make everyday life better.', interests:['Design','Music','Running','Anime'], skills:['Figma','User research'], goals:['friends','professional'], emoji:'👩🏽‍🎨', color:'#cad9f5', currentProject:'Accessible campus map'},
-  {id:'u3', name:'Rohan Das', handle:'rohansings', year:'1st year', branch:'Electrical Engineering', college:'IIT Roorkee', course:'B.Tech', bio:'Learning, playing guitar, and finding good chai.', interests:['Music','Football','Reading','Indie'], skills:['Electronics'], goals:['friends'], emoji:'🎸', color:'#ecd5ef'},
-  {id:'u4', name:'Meera Shah', handle:'meeramakes', year:'4th year', branch:'Data Science', college:'IIT Madras', course:'B.Tech', bio:'Working on an AI project for accessible learning.', interests:['AI / ML','Reading','Volunteering','Documentaries'], skills:['Python','Machine learning'], goals:['professional'], emoji:'🚀', color:'#f0dfaa', currentProject:'AI reading assistant'},
-  {id:'u5', name:'Kabir Singh', handle:'kabironthemove', year:'2nd year', branch:'Mechanical Engineering', college:'IIT Kanpur', course:'B.Tech', bio:'Motorsport fan. Always up for a weekend trek.', interests:['Robotics','Hiking','Football','FIFA'], skills:['CAD','Prototyping'], goals:['friends','professional'], emoji:'🏎️', color:'#bde0d3', currentProject:'Lightweight electric kart'},
-  {id:'u6', name:'Ananya Rao', handle:'ananyaplans', year:'3rd year', branch:'Civil Engineering', college:'IIT Guwahati', course:'B.Tech', bio:'Curious about sustainable cities and good coffee.', interests:['Photography','Design','Sustainability'], skills:['Research','Figma'], goals:['professional'], emoji:'🌿', color:'#f0c5c5', currentProject:'Low-cost water monitoring'}
+  {id:'u1', name:'Aarav Mehta', handle:'aaravbuilds', year:'2nd year', branch:'Computer Science', college:'IIT Delhi', course:'B.Tech', bio:'Building small robots and big ideas.', interests:['Robotics','Photography','Hiking','Indie'], favoriteInterests:['Robotics'], skills:['Arduino','Python'], goals:['friends','professional'], emoji:'🧑🏻‍🔧', color:'#f5c7ad', currentProject:'Campus delivery rover'},
+  {id:'u2', name:'Diya Nair', handle:'diyadesigns', year:'3rd year', branch:'Design', college:'IIT Bombay', course:'B.Des', bio:'Designing things that make everyday life better.', interests:['Design','Music','Running','Anime'], favoriteInterests:['Design','Music'], skills:['Figma','User research'], goals:['friends','professional'], emoji:'👩🏽‍🎨', color:'#cad9f5', currentProject:'Accessible campus map'},
+  {id:'u3', name:'Rohan Das', handle:'rohansings', year:'1st year', branch:'Electrical Engineering', college:'IIT Roorkee', course:'B.Tech', bio:'Learning, playing guitar, and finding good chai.', interests:['Music','Football','Reading','Indie'], favoriteInterests:['Music'], skills:['Electronics'], goals:['friends'], emoji:'🎸', color:'#ecd5ef'},
+  {id:'u4', name:'Meera Shah', handle:'meeramakes', year:'4th year', branch:'Data Science', college:'IIT Madras', course:'B.Tech', bio:'Working on an AI project for accessible learning.', interests:['AI / ML','Reading','Volunteering','Documentaries'], favoriteInterests:['AI / ML'], skills:['Python','Machine learning'], goals:['professional'], emoji:'🚀', color:'#f0dfaa', currentProject:'AI reading assistant'},
+  {id:'u5', name:'Kabir Singh', handle:'kabironthemove', year:'2nd year', branch:'Mechanical Engineering', college:'IIT Kanpur', course:'B.Tech', bio:'Motorsport fan. Always up for a weekend trek.', interests:['Robotics','Hiking','Football','FIFA'], favoriteInterests:['Robotics','Hiking'], skills:['CAD','Prototyping'], goals:['friends','professional'], emoji:'🏎️', color:'#bde0d3', currentProject:'Lightweight electric kart'},
+  {id:'u6', name:'Ananya Rao', handle:'ananyaplans', year:'3rd year', branch:'Civil Engineering', college:'IIT Guwahati', course:'B.Tech', bio:'Curious about sustainable cities and good coffee.', interests:['Photography','Design','Sustainability'], favoriteInterests:['Sustainability'], skills:['Research','Figma'], goals:['professional'], emoji:'🌿', color:'#f0c5c5', currentProject:'Low-cost water monitoring'}
 ];
 function freshState() {
   const now = Date.now();
@@ -196,7 +197,10 @@ function loadState() {
     if (!saved) return freshState();
     return {...freshState(), ...saved,
       profile:saved.profile ? {...saved.profile} : null,
-      people:Array.isArray(saved.people) ? saved.people : starterPeople,
+      people:Array.isArray(saved.people) ? saved.people.map(person=>{
+        const sample=starterPeople.find(item=>item.id===person.id);
+        return sample ? {...sample,...person,favoriteInterests:person.favoriteInterests||person.favorite_interests||sample.favoriteInterests} : person;
+      }) : starterPeople,
       posts:Array.isArray(saved.posts) ? saved.posts.map(post=>({...post,type:post.type==='personal'?'friends':post.type})) : freshState().posts,
       connections:Array.isArray(saved.connections) ? saved.connections : [],
       dismissed:Array.isArray(saved.dismissed) ? saved.dismissed : [],
@@ -215,6 +219,7 @@ let selectedAvatar = null;
 let activeChatId = null;
 let selectedProfileId = 'me';
 let profileTab = 'media';
+let showingInterestMatches = false;
 
 function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 function esc(value) {
@@ -259,7 +264,7 @@ function openSignup() {
   signupDraft = {
     name:'', gender:'Prefer not to say', age:'', hometown:'', email:'', otp:'', otpSentTo:'', otpVerified:false,
     college:'IIT Delhi', course:'B.Tech', year:'1st year', branch:'Computer Science',
-    goals:['friends'], personalTags:[], bio:'', currentProject:'', careerGoal:'', startupIdea:'', internshipGoal:'', professionalBio:''
+    goals:['friends'], personalTags:[], favoriteTags:[], bio:'', currentProject:'', careerGoal:'', startupIdea:'', internshipGoal:'', professionalBio:''
   };
   renderSignupStep(1);
 }
@@ -299,6 +304,7 @@ function renderSignupStep(step) {
       <p class="modal-intro">Choose what you want to explore. You can use both modes and update your profile later.</p>
       <div class="goal-choice-row"><button type="button" class="${signupDraft.goals.includes('friends')?'on':''}" data-goal-choice="friends" onclick="toggleGoalDraft(this)">☀ Make friends across IITs</button><button type="button" class="${signupDraft.goals.includes('professional')?'on':''}" data-goal-choice="professional" onclick="toggleGoalDraft(this)">✳ Professional network</button></div>
       <div class="preference-block"><h3>Personal profile <span>INTERESTS & HOBBIES</span></h3>${groups}
+        <div class="favorite-interest-picker"><h3>Favourite interests <span>COUNT TWICE IN MATCHES</span></h3><p class="form-note">Choose up to three of your selected interests. These carry extra weight when finding matches.</p><div class="chips" id="favoriteInterestChoices"></div></div>
         <div class="field"><label for="signupBio">Your bio <span style="font-weight:400">(optional)</span></label><textarea id="signupBio" maxlength="150" placeholder="A little about you, in 150 characters or less." oninput="signupDraft.bio=this.value">${esc(signupDraft.bio)}</textarea></div>
       </div>
       <div class="preference-block pro-preferences"><h3>Professional profile <span>IDEAS & NEXT STEPS</span></h3>
@@ -312,6 +318,7 @@ function renderSignupStep(step) {
       <div class="modal-bottom"><button class="btn light" type="button" onclick="renderSignupStep(2)">← Back</button><button class="btn" type="button" onclick="finishSignup()">Create my profile ↗</button></div>`;
   }
   modal(`<div class="eyebrow"><span></span> WELCOME TO CONNECTIIT</div><h2>Let’s get to know you.</h2><div class="modal-progress">${progress}</div>${body}`);
+  if (step === 3) renderFavoriteInterestChoices();
   document.querySelector('.modal')?.scrollTo(0,0);
 }
 function updateSignupEmail(value) {
@@ -375,10 +382,32 @@ function nextSignup() {
 }
 function toggleSignupTag(button) {
   const tag = button.dataset.tag;
-  signupDraft.personalTags = signupDraft.personalTags.includes(tag)
+  const removing=signupDraft.personalTags.includes(tag);
+  signupDraft.personalTags = removing
     ? signupDraft.personalTags.filter(item => item !== tag)
     : [...signupDraft.personalTags, tag];
+  if (removing) signupDraft.favoriteTags=signupDraft.favoriteTags.filter(item=>item!==tag);
   button.classList.toggle('on');
+  renderFavoriteInterestChoices();
+}
+function renderFavoriteInterestChoices() {
+  const root=document.getElementById('favoriteInterestChoices');
+  if (!root || !signupDraft) return;
+  if (!signupDraft.personalTags.length) {
+    root.innerHTML='<span class="form-note">Choose interests above first.</span>';
+    return;
+  }
+  root.innerHTML=signupDraft.personalTags.map(tag=>{
+    const selected=signupDraft.favoriteTags.includes(tag);
+    return `<button type="button" class="tag-choice favorite-tag ${selected?'on':''}" data-favorite-tag="${esc(tag)}" aria-pressed="${selected}" onclick="toggleFavoriteSignupTag(this)">${selected?'★':'☆'} ${esc(tag)}</button>`;
+  }).join('');
+}
+function toggleFavoriteSignupTag(button) {
+  const tag=button.dataset.favoriteTag;
+  const selected=signupDraft.favoriteTags.includes(tag);
+  if (!selected && signupDraft.favoriteTags.length>=3) { showToast('Choose up to three favourite interests.'); return; }
+  signupDraft.favoriteTags=selected?signupDraft.favoriteTags.filter(item=>item!==tag):[...signupDraft.favoriteTags,tag];
+  renderFavoriteInterestChoices();
 }
 function toggleGoalDraft(button) {
   const goal = button.dataset.goalChoice;
@@ -401,7 +430,7 @@ function finishSignup() {
     gender:signupDraft.gender, age:signupDraft.age, hometown:signupDraft.hometown,
     college:signupDraft.college, course:signupDraft.course, year:signupDraft.year, branch:signupDraft.branch,
     detail, bio:signupDraft.bio, tagline:signupDraft.bio.slice(0,150), website:'',
-    personalTags:signupDraft.personalTags, interests:signupDraft.personalTags, goals:signupDraft.goals,
+    personalTags:signupDraft.personalTags, interests:signupDraft.personalTags, favoriteInterests:signupDraft.favoriteTags, goals:signupDraft.goals,
     professional:{currentProject:signupDraft.currentProject,careerGoal:signupDraft.careerGoal,startupIdea:signupDraft.startupIdea,internshipGoal:signupDraft.internshipGoal},
     professionalBio:signupDraft.professionalBio, emoji:'🙂', color:'#dce9ce'
   };
@@ -485,10 +514,53 @@ function timeAgo(timestamp) {
   if (minutes < 1440) return `${Math.floor(minutes/60)}h ago`;
   return `${Math.floor(minutes/1440)}d ago`;
 }
+const FAVORITE_INTEREST_WEIGHT = 2;
+const FAVORITE_INTEREST_FIELDS = ['favoriteInterests','favorite_interests','favouriteInterests','favourite_interests'];
+function interestValues(value) {
+  if (Array.isArray(value)) return value;
+  if (typeof value === 'string') return value.split(',').map(item=>item.trim()).filter(Boolean);
+  return [];
+}
+function interestLabel(value) {
+  if (typeof value === 'string') return value.trim();
+  if (value && typeof value === 'object') return String(value.name || value.label || value.interest || value.value || '').trim();
+  return '';
+}
+function interestProfile(person) {
+  const all = new Map();
+  const favorites = new Set();
+  const add = (value, isFavorite=false) => {
+    const label = interestLabel(value);
+    const key = label.toLocaleLowerCase();
+    if (!key) return;
+    if (!all.has(key)) all.set(key,label);
+    const taggedFavorite = value && typeof value === 'object' && (value.favorite === true || value.favourite === true || value.isFavorite === true || value.is_favorite === true || value.isFavourite === true || value.is_favourite === true);
+    if (isFavorite || taggedFavorite) favorites.add(key);
+  };
+  interestValues(person?.interests).forEach(value=>add(value));
+  interestValues(person?.personalTags).forEach(value=>add(value));
+  interestValues(person?.casualInterests || person?.casual_interests).forEach(value=>add(value));
+  FAVORITE_INTEREST_FIELDS.forEach(field=>interestValues(person?.[field]).forEach(value=>add(value,true)));
+  return {all,favorites};
+}
 function matched(person) {
-  const mine = state.profile?.interests || state.profile?.personalTags || [];
-  const theirs = person?.interests || person?.personalTags || [];
-  return theirs.filter(item => mine.some(mineItem => String(mineItem).toLowerCase() === String(item).toLowerCase()));
+  const mine=interestProfile(state.profile).all;
+  const theirs=interestProfile(person).all;
+  return [...mine.keys()].filter(key=>theirs.has(key)).map(key=>mine.get(key));
+}
+function interestMatchScore(person) {
+  const mine=interestProfile(state.profile);
+  const theirs=interestProfile(person);
+  const union=new Set([...mine.all.keys(),...theirs.all.keys()]);
+  if (!union.size) return 0;
+  let sharedWeight=0;
+  let totalWeight=0;
+  for (const key of union) {
+    const weight=mine.favorites.has(key)||theirs.favorites.has(key)?FAVORITE_INTEREST_WEIGHT:1;
+    totalWeight+=weight;
+    if (mine.all.has(key)&&theirs.all.has(key)) sharedWeight+=weight;
+  }
+  return Math.round(sharedWeight/totalWeight*100);
 }
 function renderPosts() {
   const root = document.getElementById('feed');
@@ -528,19 +600,38 @@ function campusScene(name) {
     <path d="M0 185q125-22 246 0t354 0v15H0z" fill="#698d66"/>
   </svg>`;
 }
+function toggleInterestMatches() {
+  showingInterestMatches=!showingInterestMatches;
+  const button=document.getElementById('findInterestButton');
+  if (button) {
+    button.textContent=showingInterestMatches?'Back to suggested profile':'Find interest matches';
+    button.setAttribute('aria-pressed',String(showingInterestMatches));
+  }
+  renderSuggestions();
+}
 function renderSuggestions() {
   const root = document.getElementById('suggestions');
   if (!root || !state.profile) return;
   const candidates = state.people
     .filter(person => person.id !== 'me' && (person.goals || []).includes(state.mode))
     .filter(person => !state.dismissed.includes(person.id) && !state.connections.some(connection=>connection.personId===person.id))
-    .sort((a,b) => matched(b).length - matched(a).length);
+    .map(person=>({person,shared:matched(person),score:interestMatchScore(person)}))
+    .sort((a,b) => b.score-a.score || String(a.person.name||'').localeCompare(String(b.person.name||'')));
   if (!candidates.length) {
     root.innerHTML = '<div class="no-suggestions">You’ve seen everyone in this mode for now. Switch feeds or check back later.</div>';
     return;
   }
-  const person = candidates[0];
-  const shared = matched(person).slice(0,3);
+  if (showingInterestMatches) {
+    const hasInterests=interestProfile(state.profile).all.size>0;
+    root.innerHTML = `${hasInterests?'':'<div class="no-suggestions">Add interests to your profile to get useful match scores.</div>'}<p class="match-results-intro">Ranked by shared interests. Favourite interests count twice as much.</p><div class="match-results-list">${candidates.map(({person,shared,score})=>{
+      const detail=[person.year,person.branch,person.college].filter(Boolean).join(' · ')||'IIT student';
+      const sharedText=shared.length?`Shared: ${shared.slice(0,3).map(esc).join(', ')}`:'No shared interests yet';
+      return `<article class="match-result"><div class="match-result-heading">${avatarHTML(person)}<div class="match-result-copy"><strong>${esc(person.name)}</strong><small>${esc(detail)}</small></div><span class="match-result-score">${score}%</span></div><div class="match-meter" role="img" aria-label="${score}% interest match"><span style="width:${score}%"></span></div><div class="match-result-bottom"><span>${sharedText}</span><button type="button" onclick="showProfile('${esc(person.id)}')">View profile</button></div></article>`;
+    }).join('')}</div>`;
+    return;
+  }
+  const {person,shared:allShared,score} = candidates[0];
+  const shared = allShared.slice(0,3);
   const campus = person.college || 'IIT community';
   const badge = [person.branch,person.year,campus].filter(Boolean).join(' · ');
   root.innerHTML = `<article class="suggestion-card">
@@ -549,6 +640,7 @@ function renderSuggestions() {
       ${avatarHTML(person,'mini-avatar suggestion-avatar')}
       <h3 class="suggestion-name">${esc(person.name)}</h3><div class="suggestion-handle">@${esc(person.handle || person.name.toLowerCase().replace(/[^a-z0-9]+/g,''))}</div>
       <div class="suggestion-badge">${esc(badge)}</div>
+      <div class="match-percent-pill">${score}% interest match</div>
       <p class="suggestion-bio">${esc(person.bio || (state.mode==='friends'?'Open to meeting new people across IITs.':'Interested in projects and professional connections.'))}</p>
       <div class="shared-tags">${(shared.length?shared:['Across IITs']).map(tag=>`<span>${shared.length?'♥ ':''}${esc(tag)}</span>`).join('')}</div>
       <div class="suggestion-actions"><button class="swipe-button swipe-no" onclick="decideSuggestion('${esc(person.id)}','no')">No thanks</button><button class="swipe-button swipe-yes" onclick="decideSuggestion('${esc(person.id)}','yes')">Yes, connect</button></div>
@@ -707,6 +799,8 @@ function showProfilePost(postId) {
 function editProfile() {
   const person=state.profile;
   if (!person) return;
+  const interestData=interestProfile(person);
+  const favoriteNames=[...interestData.favorites].map(key=>interestData.all.get(key)).filter(Boolean);
   selectedBanner=null;
   selectedAvatar=null;
   modal(`<div class="eyebrow"><span></span> YOUR PROFILE</div><h2>Edit your profile</h2><p class="modal-intro">Update the details people see when they find you.</p>
@@ -716,6 +810,7 @@ function editProfile() {
     <div class="form-grid"><div class="field"><label for="editCollege">College</label><select id="editCollege">${campuses.map(v=>`<option ${person.college===v?'selected':''}>${v}</option>`).join('')}</select></div><div class="field"><label for="editBranch">Branch</label><input id="editBranch" value="${esc(person.branch||'')}"></div></div>
     <div class="field"><label for="editTagline">Tagline <span style="font-weight:400">(up to 150 characters)</span></label><input id="editTagline" maxlength="150" value="${esc(person.tagline||person.bio||'')}"></div>
     <div class="field"><label for="editInterests">Interests <span style="font-weight:400">(comma separated)</span></label><input id="editInterests" value="${esc((person.interests||[]).join(', '))}"></div>
+    <div class="field"><label for="editFavoriteInterests">Favourite interests <span style="font-weight:400">(up to 3, comma separated)</span></label><input id="editFavoriteInterests" value="${esc(favoriteNames.join(', '))}"><small>Favourite interests count twice as much in match scores. Use names from your interests list.</small></div>
     <div class="field"><label for="editWebsite">Website link</label><input id="editWebsite" type="url" placeholder="https://example.com" value="${esc(person.website||'')}"></div>
     <div class="field"><label for="editBio">About you</label><textarea id="editBio" maxlength="500">${esc(person.bio||'')}</textarea></div>
     <div class="field"><label for="editProBio">Professional bio</label><textarea id="editProBio" maxlength="500">${esc(person.professionalBio||'')}</textarea></div>
@@ -755,6 +850,9 @@ function saveProfile() {
   profile.tagline=document.getElementById('editTagline').value.trim().slice(0,150);
   profile.interests=document.getElementById('editInterests').value.split(',').map(value=>value.trim()).filter(Boolean);
   profile.personalTags=profile.interests;
+  const interestKeys=new Set(profile.interests.map(value=>value.toLocaleLowerCase()));
+  profile.favoriteInterests=[...new Set(document.getElementById('editFavoriteInterests').value.split(',').map(value=>value.trim()).filter(Boolean).filter(value=>interestKeys.has(value.toLocaleLowerCase())))].slice(0,3);
+  ['favorite_interests','favourite_interests','favouriteInterests'].forEach(field=>delete profile[field]);
   profile.website=document.getElementById('editWebsite').value.trim();
   profile.bio=document.getElementById('editBio').value.trim();
   profile.professionalBio=document.getElementById('editProBio').value.trim();
