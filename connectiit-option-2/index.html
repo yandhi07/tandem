@@ -295,7 +295,7 @@ function renderSignupStep(step) {
         <div class="field"><label for="signupHometown">Hometown</label><input id="signupHometown" maxlength="60" placeholder="City or place" value="${esc(signupDraft.hometown)}" oninput="signupDraft.hometown=this.value"></div>
       </div>
       <div class="field"><label for="signupEmail">Email address *</label><input id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com" value="${esc(signupDraft.email)}" oninput="updateSignupEmail(this.value)"></div>
-      <div class="otp-row"><div class="field"><label for="signupOtp">Demo OTP *</label><input id="signupOtp" inputmode="numeric" maxlength="6" placeholder="6 digit code" value="${esc(signupDraft.otp)}" oninput="updateSignupOtp(this.value)"></div><button class="btn light small" type="button" ${signupDraft.otpVerified?'disabled':''} onclick="${otpButtonAction}">${otpButtonLabel}</button></div>
+      <div class="otp-row"><div class="field"><label for="signupOtp">Demo OTP *</label><input id="signupOtp" inputmode="numeric" maxlength="6" placeholder="6 digit code" value="${esc(signupDraft.otp)}" oninput="signupDraft.otp=this.value"></div><button class="btn light small" type="button" onclick="sendDemoOtp()">Send demo OTP</button></div>
       <div class="otp-status" id="otpStatus">${signupDraft.otpSentTo ? (signupDraft.otpVerified ? 'Email verified for this demo.' : 'Demo code: 246810') : ''}</div>
       <p class="form-note">This prototype uses a visible demo code. Real email and OTP verification should be connected through Supabase Auth.</p>
       <div class="modal-bottom"><span class="form-note">* Required to continue</span><button class="btn" type="button" onclick="nextSignup()">Continue →</button></div>`;
@@ -330,7 +330,6 @@ function renderSignupStep(step) {
       <div class="modal-bottom"><button class="btn light" type="button" onclick="renderSignupStep(2)">← Back</button><button class="btn" type="button" onclick="finishSignup()">Create my profile ↗</button></div>`;
   }
   modal(`<div class="eyebrow"><span></span> WELCOME TO CONNECTIIT</div><h2>Let’s get to know you.</h2><div class="modal-progress">${progress}</div>${body}`);
-  if (step === 3) renderFavoriteInterestChoices();
   document.querySelector('.modal')?.scrollTo(0,0);
 }
 function updateSignupEmail(value) {
@@ -420,13 +419,11 @@ function finishSignup() {
     gender:signupDraft.gender, age:signupDraft.age, hometown:signupDraft.hometown,
     college:signupDraft.college, course:signupDraft.course, year:signupDraft.year, branch:signupDraft.branch,
     detail, bio:signupDraft.bio, tagline:signupDraft.bio.slice(0,150), website:'',
-    personalTags:signupDraft.personalTags, interests:signupDraft.personalTags, favoriteInterests:signupDraft.favoriteTags, goals:signupDraft.goals,
+    personalTags:signupDraft.personalTags, interests:signupDraft.personalTags, goals:signupDraft.goals,
     professional:{currentProject:signupDraft.currentProject,careerGoal:signupDraft.careerGoal,startupIdea:signupDraft.startupIdea,internshipGoal:signupDraft.internshipGoal},
     professionalBio:signupDraft.professionalBio, emoji:'🙂', color:'#dce9ce'
   };
   state.mode = signupDraft.goals.includes('friends') ? 'friends' : 'professional';
-  signupDraft.password = '';
-  signupDraft.passwordConfirm = '';
   save();
   closeModal();
   showApp();
